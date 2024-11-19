@@ -5,8 +5,8 @@ This repository holds the homework of Graph Databases course developed by group 
 Group Members (University email id| Matricola| Github ID):-
 1.	Mehuly Chakraborthy (mehuly.chakraborthy@studenti.unipd.it| 2107432| mehuly25)
 2.	Hufsa Memon (Hufsa.memon@studenti.unipd.it| 2106237| Hufsa05)
-3.  	Francisca Chidubem Ezeobi (franciscachidubem.ezeobi@studenti.unipd.it| 2110514| FrancyCat)
-4.  	Sahareesh Agha (sahareesh.agha@studenti.unipd.it| 2122003| Sahareesh-Agha)
+3.  Francisca Chidubem Ezeobi (franciscachidubem.ezeobi@studenti.unipd.it| 2110514| FrancyCat)
+4.  Sahareesh Agha (sahareesh.agha@studenti.unipd.it| 2122003| Sahareesh-Agha)
 
 
 ### Organisation of the repository ###
