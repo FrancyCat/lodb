@@ -12,8 +12,8 @@
 #    Object Properties
 #################################################################
 
-###  http://www.co-ode.org/ontologies/ont.owl#hasBatting
-<http://www.co-ode.org/ontologies/ont.owl#hasBatting> rdf:type owl:ObjectProperty .
+###  http://www.co-ode.org/ontologies/ont.owl#hasBattingTeam
+<http://www.co-ode.org/ontologies/ont.owl#hasBattingTeam> rdf:type owl:ObjectProperty .
 
 
 ###  http://www.co-ode.org/ontologies/ont.owl#hasDelivery
@@ -22,8 +22,8 @@
                                                        rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Delivery> .
 
 
-###  http://www.co-ode.org/ontologies/ont.owl#hasTeam
-<http://www.co-ode.org/ontologies/ont.owl#hasTeam> rdf:type owl:ObjectProperty .
+###  http://www.co-ode.org/ontologies/ont.owl#hasTotalBalls
+<http://www.co-ode.org/ontologies/ont.owl#hasTotalBalls> rdf:type owl:ObjectProperty .
 
 
 #################################################################
