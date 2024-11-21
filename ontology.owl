@@ -4,6 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.w3.org/2002/07/owl#> .
+
 [ rdf:type owl:Ontology
  ] .
 
@@ -11,10 +12,18 @@
 #    Object Properties
 #################################################################
 
+###  http://www.co-ode.org/ontologies/ont.owl#hasBatting
+<http://www.co-ode.org/ontologies/ont.owl#hasBatting> rdf:type owl:ObjectProperty .
+
+
 ###  http://www.co-ode.org/ontologies/ont.owl#hasDelivery
 <http://www.co-ode.org/ontologies/ont.owl#hasDelivery> rdf:type owl:ObjectProperty ;
                                                        rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Inning> ;
                                                        rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Delivery> .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#hasTeam
+<http://www.co-ode.org/ontologies/ont.owl#hasTeam> rdf:type owl:ObjectProperty .
 
 
 #################################################################
