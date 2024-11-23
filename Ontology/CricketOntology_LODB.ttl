@@ -23,6 +23,12 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                rdfs:range :Team .
 
 
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasDelivery
+:hasDelivery rdf:type owl:ObjectProperty ;
+             rdfs:domain :Innings ;
+             rdfs:range :Delivery .
+
+
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasOutcomeToss
 :hasOutcomeToss rdf:type owl:ObjectProperty ,
                          owl:FunctionalProperty ;
@@ -62,6 +68,12 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                    rdfs:range :Match .
 
 
+###  https://www.dei.unipd.it/lodb/cricketontology#hasBattingTeam
+:hasBattingTeam rdf:type owl:ObjectProperty ;
+                rdfs:domain :Innings ;
+                rdfs:range :Team .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -92,6 +104,12 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                         owl:FunctionalProperty ;
                rdfs:domain :Match ;
                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasTotalBalls
+:hasTotalBalls rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Delivery ;
+               rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasVenue
@@ -206,6 +224,13 @@ Toss holds - India, Field"""@en ;
                              :India .
 
 
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/B_Biza
+:B_Biza rdf:type owl:NamedIndividual ,
+                 :Player ;
+        owl:differentFrom :K_Ndlovu ;
+        :belongsToTeam :Zimbabwe .
+
+
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Charles_Kariuki
 :Charles_Kariuki rdf:type owl:NamedIndividual ,
                           :Umpire ;
@@ -238,6 +263,19 @@ Toss holds - India, Field"""@en ;
           :belongsToTeam :Australia .
 
 
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/K_Ndlovu
+:K_Ndlovu rdf:type owl:NamedIndividual ,
+                   :Player ;
+          :belongsToTeam :Zimbabwe .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/M_Short
+:M_Short rdf:type owl:NamedIndividual ,
+                  :Umpire ;
+         owl:differentFrom :S_Loftie_Eaton ,
+                           :someumpire .
+
+
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match1
 :Match1 rdf:type owl:NamedIndividual ,
                  :Match ;
@@ -251,41 +289,7 @@ Toss holds - India, Field"""@en ;
         :hasVenue "Venice" .
 
 
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss1
-:Toss1 rdf:type owl:NamedIndividual ,
-                :Toss ;
-       owl:differentFrom :Toss2 ;
-       :hasWinner :India ;
-       :hasDecision "bat" .
-
-
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/someumpire
-:someumpire rdf:type owl:NamedIndividual ,
-                     :Umpire ;
-            owl:differentFrom :M_Short ,
-                              :S_Loftie_Eaton .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#B_Biza
-:B_Biza rdf:type owl:NamedIndividual ,
-                 :Player ;
-        owl:differentFrom :K_Ndlovu ;
-        :belongsToTeam :Zimbabwe .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#K_Ndlovu
-:K_Ndlovu rdf:type owl:NamedIndividual ,
-                   :Player ;
-          :belongsToTeam :Zimbabwe .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#M_Short
-:M_Short rdf:type owl:NamedIndividual ,
-                  :Umpire ;
-         owl:differentFrom :S_Loftie_Eaton .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#Match2
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match2
 :Match2 rdf:type owl:NamedIndividual ,
                  :Match ;
         :hasOutcomeToss :Toss2 ;
@@ -297,39 +301,53 @@ Toss holds - India, Field"""@en ;
         :hasVenue "Wanderers Cricket Ground, Windhoek" .
 
 
-###  https://www.dei.unipd.it/lodb/cricketontology#Namibia
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Namibia
 :Namibia rdf:type owl:NamedIndividual ,
                   :Team ;
          owl:differentFrom :Zimbabwe .
 
 
-###  https://www.dei.unipd.it/lodb/cricketontology#SA_Wittman
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/SA_Wittman
 :SA_Wittman rdf:type owl:NamedIndividual ;
             owl:differentFrom :Yasmeen_Khan ;
             :belongsToTeam :Namibia .
 
 
-###  https://www.dei.unipd.it/lodb/cricketontology#S_Loftie_Eaton
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/S_Loftie_Eaton
 :S_Loftie_Eaton rdf:type owl:NamedIndividual ,
-                         :Umpire .
+                         :Umpire ;
+                owl:differentFrom :someumpire .
 
 
-###  https://www.dei.unipd.it/lodb/cricketontology#Toss2
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss1
+:Toss1 rdf:type owl:NamedIndividual ,
+                :Toss ;
+       owl:differentFrom :Toss2 ;
+       :hasWinner :India ;
+       :hasDecision "bat" .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss2
 :Toss2 rdf:type owl:NamedIndividual ,
                 :Toss ;
        :hasWinner :Namibia ;
        :hasDecision "field" .
 
 
-###  https://www.dei.unipd.it/lodb/cricketontology#Yasmeen_Khan
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Yasmeen_Khan
 :Yasmeen_Khan rdf:type owl:NamedIndividual ,
                        :Player ;
               :belongsToTeam :Namibia .
 
 
-###  https://www.dei.unipd.it/lodb/cricketontology#Zimbabwe
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Zimbabwe
 :Zimbabwe rdf:type owl:NamedIndividual ,
                    :Team .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/someumpire
+:someumpire rdf:type owl:NamedIndividual ,
+                     :Umpire .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
