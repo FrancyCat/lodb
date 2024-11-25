@@ -23,6 +23,12 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                rdfs:range :Team .
 
 
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasBattingTeam
+:hasBattingTeam rdf:type owl:ObjectProperty ;
+                rdfs:domain :Innings ;
+                rdfs:range :Team .
+
+
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasDelivery
 :hasDelivery rdf:type owl:ObjectProperty ;
              rdfs:domain :Innings ;
@@ -66,12 +72,6 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 :officiatedInMatch rdf:type owl:ObjectProperty ;
                    rdfs:domain :Umpire ;
                    rdfs:range :Match .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#hasBattingTeam
-:hasBattingTeam rdf:type owl:ObjectProperty ;
-                rdfs:domain :Innings ;
-                rdfs:range :Team .
 
 
 #################################################################
@@ -129,7 +129,8 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inning1
 :Inning1 rdf:type owl:Class ;
-         rdfs:subClassOf :Innings .
+         rdfs:subClassOf :Innings ;
+         owl:disjointWith :Inning2 .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inning2
@@ -138,7 +139,16 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Innings
-:Innings rdf:type owl:Class .
+:Innings rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasDelivery ;
+                               owl:someValuesFrom :Innings
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasBattingTeam ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Innings
+                             ] .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match
