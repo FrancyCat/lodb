@@ -7,6 +7,7 @@
 @base <http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/> .
 
 <https://www.dei.unipd.it/lodb/cricketontology> rdf:type owl:Ontology ;
+                                                 owl:imports <http://www.w3.org/2004/02/skos/core> ;
                                                  rdfs:comment """This is the Cricket Ontology created by group LODB.
 We have taken the Women's T20 Cricket data from cricsheet to model the ontology."""@en ;
                                                  rdfs:label "Cricket Ontology by LODB"@en .
@@ -74,6 +75,20 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                    rdfs:range :Match .
 
 
+###  https://www.dei.unipd.it/lodb/cricketontology#hasOutcome
+:hasOutcome rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Match ;
+            rdfs:range :Outcome .
+
+
+###  https://www.dei.unipd.it/lodb/cricketontology#wonBy
+:wonBy rdf:type owl:ObjectProperty ,
+                owl:FunctionalProperty ;
+       rdfs:domain :Win ;
+       rdfs:range :Team .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -117,6 +132,21 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                    owl:FunctionalProperty ;
           rdfs:domain :Match ;
           rdfs:range xsd:string .
+
+
+###  https://www.dei.unipd.it/lodb/cricketontology#runs
+:runs rdf:type owl:DatatypeProperty ,
+               owl:FunctionalProperty ;
+      rdfs:domain :Win ;
+      rdfs:range xsd:integer .
+
+
+###  https://www.dei.unipd.it/lodb/cricketontology#wicket
+:wicket rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty ;
+        rdfs:domain :Win ;
+        rdfs:range xsd:integer ;
+        rdfs:comment "Describes by which number of wickets the match has been won" .
 
 
 #################################################################
@@ -236,6 +266,17 @@ Toss holds - India, Field"""@en ;
         rdfs:subClassOf :Person .
 
 
+###  https://www.dei.unipd.it/lodb/cricketontology#Outcome
+:Outcome rdf:type owl:Class ;
+         rdfs:comment "This class represents the outcome of the matches" .
+
+
+###  https://www.dei.unipd.it/lodb/cricketontology#Win
+:Win rdf:type owl:Class ;
+     rdfs:subClassOf :Outcome ;
+     rdfs:comment "This class describes the wins (if that's the outcome)" .
+
+
 #################################################################
 #    Individuals
 #################################################################
@@ -267,6 +308,30 @@ Toss holds - India, Field"""@en ;
             owl:differentFrom :someumpire .
 
 
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Delivery1
+:Delivery1 rdf:type owl:NamedIndividual ,
+                    :Delivery ;
+           :hasTotalBalls 60 .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Delivery2
+:Delivery2 rdf:type owl:NamedIndividual ,
+                    :Delivery ;
+           :hasTotalBalls 60 .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Delivery3
+:Delivery3 rdf:type owl:NamedIndividual ,
+                    :Delivery ;
+           :hasTotalBalls 60 .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Delivery4
+:Delivery4 rdf:type owl:NamedIndividual ,
+                    :Delivery ;
+           :hasTotalBalls 60 .
+
+
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/England
 :England rdf:type owl:NamedIndividual ,
                   :Team ;
@@ -278,6 +343,22 @@ Toss holds - India, Field"""@en ;
                 :Team ;
        owl:differentFrom :Namibia ,
                          :Zimbabwe .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inning1
+:Inning1 rdf:type owl:NamedIndividual ,
+                  :Innings ;
+         :hasBattingTeam :TeamA ;
+         :hasDelivery :Delivery1 ,
+                      :Delivery2 .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inning2
+:Inning2 rdf:type owl:NamedIndividual ,
+                  :Innings ;
+         :hasBattingTeam :TeamB ;
+         :hasDelivery :Delivery3 ,
+                      :Delivery4 .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Jonathan
@@ -342,6 +423,16 @@ Toss holds - India, Field"""@en ;
                 owl:differentFrom :someumpire .
 
 
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/TeamA
+:TeamA rdf:type owl:NamedIndividual ,
+                :Team .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/TeamB
+:TeamB rdf:type owl:NamedIndividual ,
+                :Team .
+
+
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss1
 :Toss1 rdf:type owl:NamedIndividual ,
                 :Toss ;
@@ -373,54 +464,17 @@ Toss holds - India, Field"""@en ;
                      :Umpire .
 
 
-###  https://www.dei.unipd.it/lodb/cricketontology#Delivery1
-:Delivery1 rdf:type owl:NamedIndividual ,
-                    :Delivery ;
-           :hasTotalBalls 60 .
+###  https://www.dei.unipd.it/lodb/cricketontology#NoResult
+:NoResult rdf:type owl:NamedIndividual ,
+                   <http://www.w3.org/2004/02/skos/core#Concept> ,
+                   :Outcome ;
+          owl:differentFrom :Tie .
 
 
-###  https://www.dei.unipd.it/lodb/cricketontology#Delivery2
-:Delivery2 rdf:type owl:NamedIndividual ,
-                    :Delivery ;
-           :hasTotalBalls 60 .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#Delivery3
-:Delivery3 rdf:type owl:NamedIndividual ,
-                    :Delivery ;
-           :hasTotalBalls 60 .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#Delivery4
-:Delivery4 rdf:type owl:NamedIndividual ,
-                    :Delivery ;
-           :hasTotalBalls 60 .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#Inning1
-:Inning1 rdf:type owl:NamedIndividual ,
-                  :Innings ;
-         :hasBattingTeam :TeamA ;
-         :hasDelivery :Delivery1 ,
-                      :Delivery2 .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#Inning2
-:Inning2 rdf:type owl:NamedIndividual ,
-                  :Innings ;
-         :hasBattingTeam :TeamB ;
-         :hasDelivery :Delivery3 ,
-                      :Delivery4 .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#TeamA
-:TeamA rdf:type owl:NamedIndividual ,
-                :Team .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#TeamB
-:TeamB rdf:type owl:NamedIndividual ,
-                :Team .
+###  https://www.dei.unipd.it/lodb/cricketontology#Tie
+:Tie rdf:type owl:NamedIndividual ,
+              <http://www.w3.org/2004/02/skos/core#Concept> ,
+              :Outcome .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
