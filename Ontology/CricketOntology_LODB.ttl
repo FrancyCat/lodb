@@ -31,9 +31,17 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasDelivery
-:hasDelivery rdf:type owl:ObjectProperty ;
+:hasDelivery rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ;
              rdfs:domain :Innings ;
              rdfs:range :Delivery .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasOutcome
+:hasOutcome rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Match ;
+            rdfs:range :Outcome .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasOutcomeToss
@@ -75,14 +83,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                    rdfs:range :Match .
 
 
-###  https://www.dei.unipd.it/lodb/cricketontology#hasOutcome
-:hasOutcome rdf:type owl:ObjectProperty ,
-                     owl:FunctionalProperty ;
-            rdfs:domain :Match ;
-            rdfs:range :Outcome .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#wonBy
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/wonBy
 :wonBy rdf:type owl:ObjectProperty ,
                 owl:FunctionalProperty ;
        rdfs:domain :Win ;
@@ -124,7 +125,14 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasTotalBalls
 :hasTotalBalls rdf:type owl:DatatypeProperty ;
                rdfs:domain :Delivery ;
-               rdfs:range xsd:integer .
+               rdfs:range [ rdf:type rdfs:Datatype ;
+                            owl:onDatatype xsd:integer ;
+                            owl:withRestrictions ( [ xsd:minInclusive 120
+                                                   ]
+                                                   [ xsd:maxInclusive 125
+                                                   ]
+                                                 )
+                          ] .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasVenue
@@ -134,14 +142,14 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
           rdfs:range xsd:string .
 
 
-###  https://www.dei.unipd.it/lodb/cricketontology#runs
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/runs
 :runs rdf:type owl:DatatypeProperty ,
                owl:FunctionalProperty ;
       rdfs:domain :Win ;
       rdfs:range xsd:integer .
 
 
-###  https://www.dei.unipd.it/lodb/cricketontology#wicket
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/wicket
 :wicket rdf:type owl:DatatypeProperty ,
                  owl:FunctionalProperty ;
         rdfs:domain :Win ;
@@ -155,39 +163,38 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Delivery
 :Delivery rdf:type owl:Class ;
-          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasTotalBalls ;
-                                owl:maxQualifiedCardinality "125"^^xsd:nonNegativeInteger ;
-                                owl:onDataRange xsd:integer
-                              ] .
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasTotalBalls ;
+                            owl:cardinality "1"^^xsd:nonNegativeInteger
+                          ] .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inning1
 :Inning1 rdf:type owl:Class ;
-         owl:equivalentClass [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasDelivery ;
-                               owl:someValuesFrom :Delivery
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasBattingTeam ;
-                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass :Team
-                             ] ;
-         rdfs:subClassOf :Innings .
+         rdfs:subClassOf :Innings ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDelivery ;
+                           owl:someValuesFrom :Delivery
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasBattingTeam ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Team
+                         ] .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inning2
 :Inning2 rdf:type owl:Class ;
-         owl:equivalentClass [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasDelivery ;
-                               owl:someValuesFrom :Delivery
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasBattingTeam ;
-                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass :Team
-                             ] ;
-         rdfs:subClassOf :Innings .
+         rdfs:subClassOf :Innings ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDelivery ;
+                           owl:someValuesFrom :Delivery
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasBattingTeam ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Team
+                         ] .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Innings
@@ -211,6 +218,11 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                              owl:onClass :Team
                            ] ;
        rdfs:comment "This is the class Match that holds all the details about a particular match."@en .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Outcome
+:Outcome rdf:type owl:Class ;
+         rdfs:comment "This class represents the outcome of the matches" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Person
@@ -266,15 +278,14 @@ Toss holds - India, Field"""@en ;
         rdfs:subClassOf :Person .
 
 
-###  https://www.dei.unipd.it/lodb/cricketontology#Outcome
-:Outcome rdf:type owl:Class ;
-         rdfs:comment "This class represents the outcome of the matches" .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#Win
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Win
 :Win rdf:type owl:Class ;
      rdfs:subClassOf :Outcome ;
      rdfs:comment "This class describes the wins (if that's the outcome)" .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class .
 
 
 #################################################################
@@ -311,25 +322,13 @@ Toss holds - India, Field"""@en ;
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Delivery1
 :Delivery1 rdf:type owl:NamedIndividual ,
                     :Delivery ;
-           :hasTotalBalls 60 .
+           :hasTotalBalls 122 .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Delivery2
 :Delivery2 rdf:type owl:NamedIndividual ,
                     :Delivery ;
-           :hasTotalBalls 60 .
-
-
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Delivery3
-:Delivery3 rdf:type owl:NamedIndividual ,
-                    :Delivery ;
-           :hasTotalBalls 60 .
-
-
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Delivery4
-:Delivery4 rdf:type owl:NamedIndividual ,
-                    :Delivery ;
-           :hasTotalBalls 60 .
+           :hasTotalBalls 120 .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/England
@@ -349,16 +348,14 @@ Toss holds - India, Field"""@en ;
 :Inning1 rdf:type owl:NamedIndividual ,
                   :Innings ;
          :hasBattingTeam :TeamA ;
-         :hasDelivery :Delivery1 ,
-                      :Delivery2 .
+         :hasDelivery :Delivery1 .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inning2
 :Inning2 rdf:type owl:NamedIndividual ,
                   :Innings ;
          :hasBattingTeam :TeamB ;
-         :hasDelivery :Delivery3 ,
-                      :Delivery4 .
+         :hasDelivery :Delivery2 .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Jonathan
@@ -411,6 +408,13 @@ Toss holds - India, Field"""@en ;
          owl:differentFrom :Zimbabwe .
 
 
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/NoResult
+:NoResult rdf:type owl:NamedIndividual ,
+                   :Outcome ,
+                   <http://www.w3.org/2004/02/skos/core#Concept> ;
+          owl:differentFrom :Tie .
+
+
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/SA_Wittman
 :SA_Wittman rdf:type owl:NamedIndividual ;
             owl:differentFrom :Yasmeen_Khan ;
@@ -431,6 +435,12 @@ Toss holds - India, Field"""@en ;
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/TeamB
 :TeamB rdf:type owl:NamedIndividual ,
                 :Team .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Tie
+:Tie rdf:type owl:NamedIndividual ,
+              :Outcome ,
+              <http://www.w3.org/2004/02/skos/core#Concept> .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss1
@@ -462,19 +472,6 @@ Toss holds - India, Field"""@en ;
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/someumpire
 :someumpire rdf:type owl:NamedIndividual ,
                      :Umpire .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#NoResult
-:NoResult rdf:type owl:NamedIndividual ,
-                   <http://www.w3.org/2004/02/skos/core#Concept> ,
-                   :Outcome ;
-          owl:differentFrom :Tie .
-
-
-###  https://www.dei.unipd.it/lodb/cricketontology#Tie
-:Tie rdf:type owl:NamedIndividual ,
-              <http://www.w3.org/2004/02/skos/core#Concept> ,
-              :Outcome .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
