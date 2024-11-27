@@ -42,7 +42,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
              rdfs:domain :Innings ;
              rdfs:range :Delivery ;
              rdfs:comment "It represents balls played within the innings. Our data contains ball by ball data as delivery."@en ;
-             rdfs:label "Delivery" .
+             rdfs:label "hasDelivery"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasFirstInning
@@ -50,7 +50,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                 owl:inverseOf :isFirstInningOfMatch ;
                 rdfs:domain :Match ;
                 rdfs:range :Inning1 ;
-                rdfs:comment "It links first innings with the match." ;
+                rdfs:comment "It links first innings with the match. Each match has two innings."@en ;
                 rdfs:label "hasFirstInning"@en .
 
 
@@ -59,20 +59,25 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                      owl:FunctionalProperty ;
             rdfs:domain :Match ;
             rdfs:range :Outcome ;
-            rdfs:comment "Property that links a Match to its Outcome" .
+            rdfs:comment "Its a Property that links a Match class with the  Outcome class."@en ;
+            rdfs:label "hasOutcome"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasOutcomeToss
 :hasOutcomeToss rdf:type owl:ObjectProperty ,
                          owl:FunctionalProperty ;
                 rdfs:domain :Match ;
-                rdfs:range :Toss .
+                rdfs:range :Toss ;
+                rdfs:label "It represnts a property that links match with toss outcome."@en ,
+                           "hasOutcomeToss"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasPlayer
 :hasPlayer rdf:type owl:ObjectProperty ;
            rdfs:domain :Team ;
-           rdfs:range :Player .
+           rdfs:range :Player ;
+           rdfs:comment "It represents the property that links team with the player. It is inverse of another property belongToTeam which shows relation of player with team."@en ;
+           rdfs:label "hasPlayer"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasSecondInning
@@ -80,7 +85,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                  owl:inverseOf :isSecondInningOfMatch ;
                  rdfs:domain :Match ;
                  rdfs:range :Inning2 ;
-                 rdfs:comment "It links second innings with the match."@en ;
+                 rdfs:comment "It links Innings2 class with of  the match class. Every match has two innings"@en ;
                  rdfs:label "hasSecondInnings"@en .
 
 
@@ -89,7 +94,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                     owl:FunctionalProperty ;
            rdfs:domain :Toss ;
            rdfs:range :Team ;
-           rdfs:comment "Its links toss decision with the team. Data contains toss winner teams of every innings."@en ;
+           rdfs:comment "Its links toss decision with the team. Data contains toss winner teams for every innings."@en ;
            rdfs:label "hasWinner"@en .
 
 
@@ -106,7 +111,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                 owl:inverseOf :officiatedInMatch ;
                 rdfs:domain :Match ;
                 rdfs:range :Umpire ;
-                rdfs:comment "It links Umpire with the Match."@en ;
+                rdfs:comment "It links match with the umpire. It has inverse property officiatedInMatch, that links umpire with match."@en ;
                 rdfs:label "isOfficiatedBy"@en .
 
 
@@ -114,7 +119,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 :isParticipatedBy rdf:type owl:ObjectProperty ;
                   rdfs:domain :Match ;
                   rdfs:range :Team ;
-                  rdfs:comment "It links team with the match. it represents that teams participate in the match."@en ;
+                  rdfs:comment "It links team with the match. it represents those teams that participate in the match."@en ;
                   rdfs:label "isParticipatedBy"@en .
 
 
@@ -129,7 +134,9 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/officiatedInMatch
 :officiatedInMatch rdf:type owl:ObjectProperty ;
                    rdfs:domain :Umpire ;
-                   rdfs:range :Match .
+                   rdfs:range :Match ;
+                   rdfs:comment "it represents the property that links umpire with match. Its an inverse of is OfficiatedBy property that links match with umpire."@en ;
+                   rdfs:label "officiatedInMatch"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/wonBy
@@ -137,7 +144,8 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                 owl:FunctionalProperty ;
        rdfs:domain :Win ;
        rdfs:range :Team ;
-       rdfs:comment "Property that links a Win to the winning Team" .
+       rdfs:comment "Property that links a Win to the winning Team."@en ;
+       rdfs:label "wonBy"@en .
 
 
 #################################################################
@@ -147,7 +155,9 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasDates
 :hasDates rdf:type owl:DatatypeProperty ;
           rdfs:domain :Match ;
-          rdfs:range xsd:dateTime .
+          rdfs:range xsd:dateTime ;
+          rdfs:comment "This property represents the date of the match. Every match had been played on certain date."@en ;
+          rdfs:label "hasDates"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasDecision
@@ -162,14 +172,18 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                                                  rdf:rest rdf:nil
                                                ]
                                     ]
-                        ] .
+                        ] ;
+             rdfs:comment "It represents a decison outcome of toss, the winner team either chooses to bat or field, so it has two values."@en ;
+             rdfs:label "hasDecision"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasManofMatch
 :hasManofMatch rdf:type owl:DatatypeProperty ,
                         owl:FunctionalProperty ;
                rdfs:domain :Match ;
-               rdfs:range xsd:string .
+               rdfs:range xsd:string ;
+               rdfs:comment "This property represents player who got man of the match title. It will show the name of player (if any) got this title in a particular match."@en ;
+               rdfs:label "hasManofMatch"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasTotalBalls
@@ -182,14 +196,18 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                                                    [ xsd:maxInclusive 125
                                                    ]
                                                  )
-                          ] .
+                          ] ;
+               rdfs:comment "This property represents the total number of balls played during a match. In a single T20 match total balls are 120. Considering 5 wide/no balls, its range has been set from 120 to 125 inclusive."@en ;
+               rdfs:label "hasTotalBalls"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasVenue
 :hasVenue rdf:type owl:DatatypeProperty ,
                    owl:FunctionalProperty ;
           rdfs:domain :Match ;
-          rdfs:range xsd:string .
+          rdfs:range xsd:string ;
+          rdfs:comment "The property hasVenue represents the location where the match was played. Its a string and shows the names of cricket grounds."@en ;
+          rdfs:label "hasVenue"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/runs
@@ -197,7 +215,8 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                owl:FunctionalProperty ;
       rdfs:domain :Win ;
       rdfs:range xsd:integer ;
-      rdfs:comment "Number of runs by which a match has been won" .
+      rdfs:comment "Number of runs by which a match has been won" ;
+      rdfs:label "runs"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/wickets
@@ -205,7 +224,8 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                   owl:FunctionalProperty ;
          rdfs:domain :Win ;
          rdfs:range xsd:integer ;
-         rdfs:comment "Number of wickets by which a match has been won" .
+         rdfs:comment "Number of wickets by which a match has been won" ;
+         rdfs:label "wickets"@en .
 
 
 #################################################################
