@@ -28,11 +28,10 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasBattingTeam
 :hasBattingTeam rdf:type owl:ObjectProperty ,
-                         owl:FunctionalProperty ,
-                         owl:InverseFunctionalProperty ;
+                         owl:FunctionalProperty ;
                 rdfs:domain :Innings ;
                 rdfs:range :Team ;
-                rdfs:comment "Its an object property for innings. It represents that it has a batting team."@en ;
+                rdfs:comment "It represents the batting team of each Inning."@en ;
                 rdfs:label "hasBattingTeam"@en .
 
 
@@ -41,7 +40,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                       owl:FunctionalProperty ;
              rdfs:domain :Innings ;
              rdfs:range :Delivery ;
-             rdfs:comment "It represents balls played within the innings. Our data contains ball by ball data as delivery."@en ;
+             rdfs:comment "It represents the total balls used in each Inning. This helps us to understand if the team has played extra balls or not."@en ;
              rdfs:label "hasDelivery"@en .
 
 
@@ -50,7 +49,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                 owl:inverseOf :isFirstInningOfMatch ;
                 rdfs:domain :Match ;
                 rdfs:range :Inning1 ;
-                rdfs:comment "It links first innings with the match. Each match has two innings."@en ;
+                rdfs:comment "It represents the first inning of the match."@en ;
                 rdfs:label "hasFirstInning"@en .
 
 
@@ -117,6 +116,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/isParticipatedBy
 :isParticipatedBy rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :isParticipatingInMatch ;
                   rdfs:domain :Match ;
                   rdfs:range :Team ;
                   rdfs:comment "It links team with the match. it represents those teams that participate in the match."@en ;
@@ -146,6 +146,14 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
        rdfs:range :Team ;
        rdfs:comment "Property that links a Win to the winning Team."@en ;
        rdfs:label "wonBy"@en .
+
+
+###  https://www.dei.unipd.it/lodb/Cricketontology#isParticipatingInMatch
+:isParticipatingInMatch rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Team ;
+                        rdfs:range :Match ;
+                        rdfs:comment "It is the property that links Team to Match. It is also inverse of the object property isParticipatedBy" ;
+                        rdfs:label "isParticipatingInMatch" .
 
 
 #################################################################
@@ -256,7 +264,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                            owl:onClass :Team
                          ] ;
          owl:disjointWith :Inning2 ;
-         rdfs:comment "This class represents first innings in a cricket match, which is a phase of play during which one team bats and other team bowls depending on the toss decision."@en ;
+         rdfs:comment "This class represents first innings in a cricket match. The first inning of a match is the first part of the match where out of the 2 team, one team bats and the other team bowls, depending on the toss decision."@en ;
          rdfs:label "Innings1"@en .
 
 
@@ -272,12 +280,14 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                            owl:onClass :Team
                          ] ;
-         rdfs:comment "This class represents second innings of the match, where the team batting second attempts to chase the target set by batting team first."@en ;
+         rdfs:comment "This class represents second inning of the match. The second inning is the next part of the game where the teams that batted and fielded in the first inning, gets reversed."@en ;
          rdfs:label "Innings2"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Innings
-:Innings rdf:type owl:Class .
+:Innings rdf:type owl:Class ;
+         rdfs:comment "The class that contains Inning1 and Inning2 for each match" ;
+         rdfs:label "Innings" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match
@@ -314,7 +324,9 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Person
-:Person rdf:type owl:Class .
+:Person rdf:type owl:Class ;
+        rdfs:comment "Includes the Players and the Umpires of the match" ;
+        rdfs:label "Person" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Player
@@ -335,6 +347,10 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
       owl:equivalentClass [ rdf:type owl:Restriction ;
                             owl:onProperty :hasPlayer ;
                             owl:someValuesFrom :Player
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isParticipatingInMatch ;
+                            owl:someValuesFrom :Match
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :hasPlayer ;
