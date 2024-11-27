@@ -58,12 +58,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 :hasOutcome rdf:type owl:ObjectProperty ,
                      owl:FunctionalProperty ;
             rdfs:domain :Match ;
-            rdfs:range :Outcome ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasOutcome ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass :Outcome
-                       ] ;
+            rdfs:range :Outcome ;
             rdfs:comment "Property that links a Match to its Outcome" .
 
 
@@ -141,12 +136,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 :wonBy rdf:type owl:ObjectProperty ,
                 owl:FunctionalProperty ;
        rdfs:domain :Win ;
-       rdfs:range :Team ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :wonBy ;
-                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                    owl:onClass :Team
-                  ] ;
+       rdfs:range :Team ;
        rdfs:comment "Property that links a Win to the winning Team" .
 
 
@@ -276,6 +266,11 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                          owl:allValuesFrom :Umpire
                        ] ,
                        [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasOutcome ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Outcome
+                       ] ,
+                       [ rdf:type owl:Restriction ;
                          owl:onProperty :isOfficiatedBy ;
                          owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
                          owl:onClass :Umpire
@@ -355,6 +350,11 @@ Toss holds - India, Field"""@en ;
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Win
 :Win rdf:type owl:Class ;
+     owl:equivalentClass [ rdf:type owl:Restriction ;
+                           owl:onProperty :wonBy ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Team
+                         ] ;
      rdfs:subClassOf :Outcome ;
      owl:disjointWith <http://www.w3.org/2004/02/skos/core#Concept> ;
      rdfs:comment "This class describes the wins (if that's the outcome)" .
