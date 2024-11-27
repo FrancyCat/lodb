@@ -214,10 +214,11 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Delivery
 :Delivery rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasTotalBalls ;
-                            owl:cardinality "1"^^xsd:nonNegativeInteger
-                          ] ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasTotalBalls ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:integer
+                              ] ;
           rdfs:comment "This is the class that holds the total number of balls in each inning."@en ;
           rdfs:label "Delivery"@en .
 
@@ -298,12 +299,12 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Player
 :Player rdf:type owl:Class ;
-        rdfs:subClassOf :Person ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :belongsToTeam ;
-                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onClass :Team
-                        ] ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :belongsToTeam ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Team
+                            ] ;
+        rdfs:subClassOf :Person ;
         owl:disjointWith :Umpire ;
         rdfs:comment "This class represents all the players participating in the game" ;
         rdfs:label "Player" .
@@ -311,10 +312,15 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Team
 :Team rdf:type owl:Class ;
-      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                        owl:onProperty :hasPlayer ;
-                        owl:someValuesFrom :Player
-                      ] ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasPlayer ;
+                            owl:someValuesFrom :Player
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasPlayer ;
+                            owl:qualifiedCardinality "11"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Player
+                          ] ;
       owl:disjointWith :Win ;
       rdfs:comment "This is the class that represents the 2 teams participating in the Cricket match" ;
       rdfs:label "Team"@en .
@@ -322,15 +328,15 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss
 :Toss rdf:type owl:Class ;
-      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                        owl:onProperty :hasWinner ;
-                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Team
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :hasDecision ;
-                        owl:cardinality "1"^^xsd:nonNegativeInteger
-                      ] ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasWinner ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Team
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasDecision ;
+                            owl:cardinality "1"^^xsd:nonNegativeInteger
+                          ] ;
       rdfs:comment """Toss identifies the team that has won in the toss and also what the winning team chooses to deliver. 
 For example, for the match India vs Australia, India wins the toss, and chooses to Field. 
 Toss holds - India, Field"""@en ;
@@ -339,11 +345,11 @@ Toss holds - India, Field"""@en ;
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Umpire
 :Umpire rdf:type owl:Class ;
-        rdfs:subClassOf :Person ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :officiatedInMatch ;
-                          owl:someValuesFrom :Match
-                        ] ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :officiatedInMatch ;
+                              owl:someValuesFrom :Match
+                            ] ;
+        rdfs:subClassOf :Person ;
         rdfs:comment "This class represents all the umpires in the game" ;
         rdfs:label "Umpire"@en .
 
