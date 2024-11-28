@@ -7,7 +7,8 @@
 @base <http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/> .
 
 <https://www.dei.unipd.it/lodb/Cricketontology> rdf:type owl:Ontology ;
-                                                 owl:imports <http://www.w3.org/2004/02/skos/core> ;
+                                                 owl:imports <http://www.w3.org/2004/02/skos/core> ,
+                                                             <http://xmlns.com/foaf/0.1/> ;
                                                  rdfs:comment """This is the Cricket Ontology created by group LODB.
 We have taken the Women's T20 Cricket data from cricsheet to model the ontology."""@en ;
                                                  rdfs:label "Cricket Ontology by LODB"@en .
@@ -44,15 +45,6 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
              rdfs:label "hasDelivery"@en .
 
 
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasFirstInning
-:hasFirstInning rdf:type owl:ObjectProperty ;
-                owl:inverseOf :isFirstInningOfMatch ;
-                rdfs:domain :Match ;
-                rdfs:range :Inning1 ;
-                rdfs:comment "It represents the first inning of the match."@en ;
-                rdfs:label "hasFirstInning"@en .
-
-
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasOutcome
 :hasOutcome rdf:type owl:ObjectProperty ,
                      owl:FunctionalProperty ;
@@ -79,15 +71,6 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
            rdfs:label "hasPlayer"@en .
 
 
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasSecondInning
-:hasSecondInning rdf:type owl:ObjectProperty ;
-                 owl:inverseOf :isSecondInningOfMatch ;
-                 rdfs:domain :Match ;
-                 rdfs:range :Inning2 ;
-                 rdfs:comment "It links Innings2 class with of  the match class. Every match has two innings"@en ;
-                 rdfs:label "hasSecondInnings"@en .
-
-
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasWinner
 :hasWinner rdf:type owl:ObjectProperty ,
                     owl:FunctionalProperty ;
@@ -97,14 +80,6 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
            rdfs:label "hasWinner"@en .
 
 
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/isFirstInningOfMatch
-:isFirstInningOfMatch rdf:type owl:ObjectProperty ;
-                      rdfs:domain :Inning1 ;
-                      rdfs:range :Match ;
-                      rdfs:comment "Its a property of first innings which represents that it belongs to a match."@en ;
-                      rdfs:label "isFirstInningsOfMatch"@en .
-
-
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/isOfficiatedBy
 :isOfficiatedBy rdf:type owl:ObjectProperty ;
                 owl:inverseOf :officiatedInMatch ;
@@ -112,31 +87,6 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                 rdfs:range :Umpire ;
                 rdfs:comment "It links match with the umpire. It has inverse property officiatedInMatch, that links umpire with match."@en ;
                 rdfs:label "isOfficiatedBy"@en .
-
-
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/isParticipatedBy
-:isParticipatedBy rdf:type owl:ObjectProperty ;
-                  owl:inverseOf :isParticipatingInMatch ;
-                  rdfs:domain :Match ;
-                  rdfs:range :Team ;
-                  rdfs:comment "It links team with the match. it represents those teams that participate in the match."@en ;
-                  rdfs:label "isParticipatedBy"@en .
-
-
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/isParticipatingInMatch
-:isParticipatingInMatch rdf:type owl:ObjectProperty ;
-                        rdfs:domain :Team ;
-                        rdfs:range :Match ;
-                        rdfs:comment "It is the property that links Team to Match. It is also inverse of the object property isParticipatedBy" ;
-                        rdfs:label "isParticipatingInMatch" .
-
-
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/isSecondInningOfMatch
-:isSecondInningOfMatch rdf:type owl:ObjectProperty ;
-                       rdfs:domain :Inning2 ;
-                       rdfs:range :Match ;
-                       rdfs:comment "Its a property of second innings which represents that it belongs to a match."@en ;
-                       rdfs:label "isSecondInningsOfMatch"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/officiatedInMatch
@@ -154,6 +104,28 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
        rdfs:range :Team ;
        rdfs:comment "Property that links a Win to the winning Team."@en ;
        rdfs:label "wonBy"@en .
+
+
+###  https://www.dei.unipd.it/lodb/Cricketontology#hasAwayTeam
+:hasAwayTeam rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain :Match ;
+             rdfs:range :Team .
+
+
+###  https://www.dei.unipd.it/lodb/Cricketontology#hasHomeTeam
+:hasHomeTeam rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain :Match ;
+             rdfs:range :Team ;
+             rdfs:comment "Links Match to Team. Denotes the Home team" .
+
+
+###  https://www.dei.unipd.it/lodb/Cricketontology#hasVenue
+:hasVenue rdf:type owl:ObjectProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :Match ;
+          rdfs:range :Venue .
 
 
 #################################################################
@@ -209,15 +181,6 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                rdfs:label "hasTotalBalls"@en .
 
 
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasVenue
-:hasVenue rdf:type owl:DatatypeProperty ,
-                   owl:FunctionalProperty ;
-          rdfs:domain :Match ;
-          rdfs:range xsd:string ;
-          rdfs:comment "The property hasVenue represents the location where the match was played. Its a string and shows the names of cricket grounds."@en ;
-          rdfs:label "hasVenue"@en .
-
-
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/runs
 :runs rdf:type owl:DatatypeProperty ,
                owl:FunctionalProperty ;
@@ -227,6 +190,15 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
       rdfs:label "runs"@en .
 
 
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/venueName
+:venueName rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :Venue ;
+           rdfs:range xsd:string ;
+           rdfs:comment "The property hasVenue represents the location where the match was played. Its a string and shows the names of cricket grounds."@en ;
+           rdfs:label "venueName"@en .
+
+
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/wickets
 :wickets rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
@@ -234,6 +206,27 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
          rdfs:range xsd:integer ;
          rdfs:comment "Number of wickets by which a match has been won" ;
          rdfs:label "wickets"@en .
+
+
+###  http://xmlns.com/foaf/0.1/givenName
+<http://xmlns.com/foaf/0.1/givenName> rdf:type owl:FunctionalProperty ;
+                                      rdfs:domain <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
+                                      rdfs:range xsd:string .
+
+
+###  https://www.dei.unipd.it/lodb/Cricketontology#neutralVenue
+:neutralVenue rdf:type owl:DatatypeProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Venue ;
+              rdfs:range xsd:boolean ;
+              rdfs:comment "States if a venue belongs to the Home Team or is neutral" .
+
+
+###  https://www.dei.unipd.it/lodb/Cricketontology#teamName
+:teamName rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :Team ;
+          rdfs:range xsd:string .
 
 
 #################################################################
@@ -293,6 +286,18 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match
 :Match rdf:type owl:Class ;
        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasAwayTeam ;
+                         owl:someValuesFrom :Team
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasHomeTeam ;
+                         owl:someValuesFrom :Team
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasVenue ;
+                         owl:someValuesFrom :Venue
+                       ] ,
+                       [ rdf:type owl:Restriction ;
                          owl:onProperty :isOfficiatedBy ;
                          owl:allValuesFrom :Umpire
                        ] ,
@@ -305,14 +310,10 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                          owl:onProperty :isOfficiatedBy ;
                          owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
                          owl:onClass :Umpire
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :isParticipatedBy ;
-                         owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
-                         owl:onClass :Team
                        ] ;
        owl:disjointWith :Outcome ,
-                        :Win ;
+                        :Win ,
+                        :Venue ;
        rdfs:comment "This is the class Match that holds all the details about a particular match."@en ;
        rdfs:label "Match"@en .
 
@@ -323,12 +324,6 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
          rdfs:comment "This class represents the outcome of the matches" .
 
 
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Person
-:Person rdf:type owl:Class ;
-        rdfs:comment "Includes the Players and the Umpires of the match" ;
-        rdfs:label "Person" .
-
-
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Player
 :Player rdf:type owl:Class ;
         owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -336,7 +331,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                               owl:onClass :Team
                             ] ;
-        rdfs:subClassOf :Person ;
+        rdfs:subClassOf <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
         owl:disjointWith :Umpire ;
         rdfs:comment "This class represents all the players participating in the game" ;
         rdfs:label "Player" .
@@ -349,13 +344,13 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                             owl:someValuesFrom :Player
                           ] ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty :isParticipatingInMatch ;
-                            owl:someValuesFrom :Match
-                          ] ,
-                          [ rdf:type owl:Restriction ;
                             owl:onProperty :hasPlayer ;
                             owl:qualifiedCardinality "11"^^xsd:nonNegativeInteger ;
                             owl:onClass :Player
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :teamName ;
+                            owl:someValuesFrom xsd:string
                           ] ;
       owl:disjointWith :Win ;
       rdfs:comment "This is the class that represents the 2 teams participating in the Cricket match" ;
@@ -385,7 +380,7 @@ Toss holds - India, Field"""@en ;
                               owl:onProperty :officiatedInMatch ;
                               owl:someValuesFrom :Match
                             ] ;
-        rdfs:subClassOf :Person ;
+        rdfs:subClassOf <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
         rdfs:comment "This class represents all the umpires in the game" ;
         rdfs:label "Umpire"@en .
 
@@ -407,17 +402,22 @@ Toss holds - India, Field"""@en ;
      rdfs:comment "This class describes the wins (if that's the outcome)" .
 
 
-###  https://www.dei.unipd.it/lodb/Cricketontology#WinByRuns
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/WinByRuns
 :WinByRuns rdf:type owl:Class ;
            rdfs:subClassOf :Win ;
            owl:disjointWith :WinByWickets ;
            rdfs:comment "Class representing the Win by certain number of runs" .
 
 
-###  https://www.dei.unipd.it/lodb/Cricketontology#WinByWickets
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/WinByWickets
 :WinByWickets rdf:type owl:Class ;
               rdfs:subClassOf :Win ;
               rdfs:comment "Class representing the Win by certain number of wickets" .
+
+
+###  https://www.dei.unipd.it/lodb/Cricketontology#Venue
+:Venue rdf:type owl:Class ;
+       rdfs:comment "Consists of the Venue and City where the match was held." .
 
 
 #################################################################
@@ -487,7 +487,8 @@ Toss holds - India, Field"""@en ;
 :India rdf:type owl:NamedIndividual ,
                 :Team ;
        owl:differentFrom :Namibia ,
-                         :Zimbabwe .
+                         :Zimbabwe ;
+       :teamName "India" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inn1_m1
@@ -502,7 +503,6 @@ Toss holds - India, Field"""@en ;
 :Inn1_m3 rdf:type owl:NamedIndividual ,
                   :Inning1 ;
          :hasBattingTeam :New_Zealand ;
-         :isFirstInningOfMatch :Match3 ;
          :hasTotalBalls 122 .
 
 
@@ -518,7 +518,6 @@ Toss holds - India, Field"""@en ;
 :Inn2_m3 rdf:type owl:NamedIndividual ,
                   :Inning2 ;
          :hasBattingTeam :West_indies ;
-         :isSecondInningOfMatch :Match3 ;
          :hasTotalBalls 124 .
 
 
@@ -536,7 +535,8 @@ Toss holds - India, Field"""@en ;
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Kim_Cotton
 :Kim_Cotton rdf:type owl:NamedIndividual ,
-                     :Umpire .
+                     :Umpire ;
+            <http://xmlns.com/foaf/0.1/givenName> "Kim Cotton" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/ML_Green
@@ -561,10 +561,7 @@ Toss holds - India, Field"""@en ;
         :hasOutcomeToss :Toss1 ;
         :isOfficiatedBy :D_Odhiambo ,
                         :M_Short ;
-        :isParticipatedBy :Australia ,
-                          :India ;
-        :hasManofMatch "" ;
-        :hasVenue "Venice" .
+        :hasManofMatch "" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match2
@@ -574,10 +571,7 @@ Toss holds - India, Field"""@en ;
         :hasOutcomeToss :Toss2 ;
         :isOfficiatedBy :M_Short ,
                         :S_Loftie_Eaton ;
-        :isParticipatedBy :Namibia ,
-                          :Zimbabwe ;
-        :hasManofMatch "" ;
-        :hasVenue "Wanderers Cricket Ground, Windhoek" .
+        :hasManofMatch "" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match3
@@ -586,10 +580,10 @@ Toss holds - India, Field"""@en ;
         :hasOutcomeToss :Toss3 ;
         :isOfficiatedBy :BF_Bowden ,
                         :Kim_Cotton ;
-        :isParticipatedBy :New_Zealand ,
-                          :West_indies ;
-        :hasManofMatch "HK Matthews" ;
-        :hasVenue "Pukekura Park, New Zealand" .
+        :hasAwayTeam :West_indies ;
+        :hasHomeTeam :New_Zealand ;
+        :hasVenue :venueTest ;
+        :hasManofMatch "HK Matthews" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/NC_Dodd
@@ -607,7 +601,8 @@ Toss holds - India, Field"""@en ;
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/New_Zealand
 :New_Zealand rdf:type owl:NamedIndividual ,
                       :Team ;
-             owl:differentFrom :West_indies .
+             owl:differentFrom :West_indies ;
+             :teamName "New Zealand" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/NoResult
@@ -668,7 +663,8 @@ Toss holds - India, Field"""@en ;
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/West_indies
-:West_indies rdf:type owl:NamedIndividual .
+:West_indies rdf:type owl:NamedIndividual ;
+             :teamName "West Indies" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Yasmeen_Khan
@@ -682,21 +678,28 @@ Toss holds - India, Field"""@en ;
                    :Team .
 
 
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/someumpire
-:someumpire rdf:type owl:NamedIndividual ,
-                     :Umpire .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#outcomeTest
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/outcomeTest
 :outcomeTest rdf:type owl:NamedIndividual ,
                       :Outcome ;
              :runs 12 .
 
 
-###  https://www.dei.unipd.it/lodb/Cricketontology#testMatch
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/someumpire
+:someumpire rdf:type owl:NamedIndividual ,
+                     :Umpire .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/testMatch
 :testMatch rdf:type owl:NamedIndividual ,
                     :Match ;
            :hasOutcome :outcomeTest .
+
+
+###  https://www.dei.unipd.it/lodb/Cricketontology#venueTest
+:venueTest rdf:type owl:NamedIndividual ,
+                    :Venue ;
+           :venueName "San siro, Milan" ;
+           :neutralVenue "false"^^xsd:boolean .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
