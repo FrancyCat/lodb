@@ -23,7 +23,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                rdf:type owl:FunctionalProperty ;
                rdfs:domain :Player ;
                rdfs:range :Team ;
-               rdfs:comment "It represents an object property that links player with the team."@en ;
+               rdfs:comment "It represents an object property that links player with the team, stating which player belongs to which team"@en ;
                rdfs:label "belongsToTeam"@en .
 
 
@@ -31,7 +31,9 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 :hasAwayTeam rdf:type owl:ObjectProperty ,
                       owl:FunctionalProperty ;
              rdfs:domain :Match ;
-             rdfs:range :Team .
+             rdfs:range :Team ;
+             rdfs:comment "It consists of the Away Team of the cricket match" ;
+             rdfs:label "hasAwayTeam" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasBattingTeam
@@ -48,7 +50,9 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                  owl:inverseOf :isFirstInningsOf ;
                  rdf:type owl:FunctionalProperty ;
                  rdfs:domain :Match ;
-                 rdfs:range :Innings .
+                 rdfs:range :Innings ;
+                 rdfs:comment "It represents the object property from Match to Innings, stating the 1st inning of the match." ;
+                 rdfs:label "hasFirstInnings" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasHomeTeam
@@ -56,7 +60,8 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                       owl:FunctionalProperty ;
              rdfs:domain :Match ;
              rdfs:range :Team ;
-             rdfs:comment "Links Match to Team. Denotes the Home team" .
+             rdfs:comment "Links Match to Team. Denotes the Home team" ;
+             rdfs:label "hasHomeTeam" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasOutcome
@@ -90,14 +95,18 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                   owl:inverseOf :isSecondInningsOf ;
                   rdf:type owl:FunctionalProperty ;
                   rdfs:domain :Match ;
-                  rdfs:range :Innings .
+                  rdfs:range :Innings ;
+                  rdfs:comment "It represents the object property from Match to Innings, stating the 2nd inning of the match." ;
+                  rdfs:label "hasSecondInnings" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasVenue
 :hasVenue rdf:type owl:ObjectProperty ,
                    owl:FunctionalProperty ;
           rdfs:domain :Match ;
-          rdfs:range :Venue .
+          rdfs:range :Venue ;
+          rdfs:comment "It is the object property that links Match to the Venue class, stating that a match took place in a particular venue" ;
+          rdfs:label "hasVenue" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasWinner
@@ -113,7 +122,9 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 :isFirstInningsOf rdf:type owl:ObjectProperty ,
                            owl:FunctionalProperty ;
                   rdfs:domain :Innings ;
-                  rdfs:range :Match .
+                  rdfs:range :Match ;
+                  rdfs:comment "It is the object property that connects Innings to Match, stating that Inning 1 is the first inning of which match." ;
+                  rdfs:label "isFirstInningsOf" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/isOfficiatedBy
@@ -121,14 +132,16 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                 owl:inverseOf :officiatedInMatch ;
                 rdfs:domain :Match ;
                 rdfs:range :Umpire ;
-                rdfs:comment "It links match with the umpire. It has inverse property officiatedInMatch, that links umpire with match."@en ;
+                rdfs:comment "It links match with the umpire, stating that a match is officiated by which umpires. It has inverse property officiatedInMatch, that links umpire with match."@en ;
                 rdfs:label "isOfficiatedBy"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/isSecondInningsOf
 :isSecondInningsOf rdf:type owl:ObjectProperty ;
                    rdfs:domain :Innings ;
-                   rdfs:range :Match .
+                   rdfs:range :Match ;
+                   rdfs:comment "It is the object property that connects Innings to Match, stating that Inning 2 is the second inning of which match." ,
+                                "isSecondInningsOf" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/officiatedInMatch
@@ -191,7 +204,8 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                        owl:FunctionalProperty ;
               rdfs:domain :Venue ;
               rdfs:range xsd:boolean ;
-              rdfs:comment "States if a venue belongs to the Home Team or is neutral" .
+              rdfs:comment "States if a venue belongs to the Home Team or is neutral" ;
+              rdfs:label "neutralVenue"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/runs
@@ -207,7 +221,9 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 :teamName rdf:type owl:DatatypeProperty ,
                    owl:FunctionalProperty ;
           rdfs:domain :Team ;
-          rdfs:range xsd:string .
+          rdfs:range xsd:string ;
+          rdfs:comment "Data property that states the name of the team participating in the match"@en ;
+          rdfs:label "teamName"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/totalBallsDelivery
@@ -317,7 +333,8 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Outcome
 :Outcome rdf:type owl:Class ;
          owl:disjointWith :Team ;
-         rdfs:comment "This class represents the outcome of the matches" .
+         rdfs:comment "This class represents the outcome of the matches" ;
+         rdfs:label "Outcome" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Player
@@ -383,7 +400,8 @@ Toss holds - India, Field"""@en ;
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Venue
 :Venue rdf:type owl:Class ;
-       rdfs:comment "Consists of the Venue and City where the match was held." .
+       rdfs:comment "Consists of the Venue and City where the match was held." ;
+       rdfs:label "Venue" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Win
@@ -412,8 +430,11 @@ Toss holds - India, Field"""@en ;
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/WinByWickets
 :WinByWickets rdf:type owl:Class ;
-              rdfs:subClassOf :Win ;
-              rdfs:comment "Class representing the Win by certain number of wickets" .
+              rdfs:subClassOf :Win .
+
+
+###  http://www.w3.org/2000/10/swap/pim/contact#Person
+<http://www.w3.org/2000/10/swap/pim/contact#Person> rdfs:comment "The class that includes the Umpire and People" .
 
 
 #################################################################
@@ -425,58 +446,45 @@ Toss holds - India, Field"""@en ;
                     :Team ;
            owl:differentFrom :England ,
                              :India ;
-           :teamName "Australia" .
+           :teamName "Australia" ;
+           rdfs:comment "Team" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/BF_Bowden
 :BF_Bowden rdf:type owl:NamedIndividual ,
                     :Umpire ;
-           owl:differentFrom :Kim_Cotton .
+           owl:differentFrom :Kim_Cotton ;
+           rdfs:comment "Umpire"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/B_Biza
 :B_Biza rdf:type owl:NamedIndividual ,
                  :Player ;
         owl:differentFrom :K_Ndlovu ;
-        :belongsToTeam :Zimbabwe .
+        :belongsToTeam :Zimbabwe ;
+        rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/B_Cooper
 :B_Cooper rdf:type owl:NamedIndividual ,
                    :Player ;
           owl:differentFrom :SS_Connell ;
-          :belongsToTeam :West_indies .
-
-
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Charles_Kariuki
-:Charles_Kariuki rdf:type owl:NamedIndividual ,
-                          :Umpire ;
-                 owl:differentFrom :D_Odhiambo ,
-                                   :someumpire .
+          :belongsToTeam :West_indies ;
+          rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/D_Odhiambo
 :D_Odhiambo rdf:type owl:NamedIndividual ,
                      :Umpire ;
-            owl:differentFrom :someumpire .
-
-
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Del1_m1
-:Del1_m1 rdf:type owl:NamedIndividual ;
-         owl:differentFrom :Del2_m1 ;
-         :totalBallsDelivery 120 .
-
-
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Del2_m1
-:Del2_m1 rdf:type owl:NamedIndividual ;
-         :totalBallsDelivery 122 .
+            rdfs:comment "Umpire"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/England
 :England rdf:type owl:NamedIndividual ,
                   :Team ;
          owl:differentFrom :India ;
-         :teamName "England" .
+         :teamName "England" ;
+         rdfs:comment "Team" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/India
@@ -484,20 +492,23 @@ Toss holds - India, Field"""@en ;
                 :Team ;
        owl:differentFrom :Namibia ,
                          :Zimbabwe ;
-       :teamName "India" .
+       :teamName "India" ;
+       rdfs:comment "Team"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inn1_m1
 :Inn1_m1 rdf:type owl:NamedIndividual ;
          owl:differentFrom :Inn2_m1 ;
-         :hasBattingTeam :Namibia .
+         :hasBattingTeam :Namibia ;
+         rdfs:comment "The 1st Inning of Match 1"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inn1_m3
 :Inn1_m3 rdf:type owl:NamedIndividual ;
          owl:differentFrom :Inn2_m3 ;
          :hasBattingTeam :New_Zealand ;
-         :totalBallsDelivery 122 .
+         :totalBallsDelivery 122 ;
+         rdfs:comment "The 1st inning of match 3" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inn2_m1
@@ -509,25 +520,29 @@ Toss holds - India, Field"""@en ;
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inn2_m3
 :Inn2_m3 rdf:type owl:NamedIndividual ;
          :hasBattingTeam :West_indies ;
-         :totalBallsDelivery 124 .
+         :totalBallsDelivery 124 ;
+         rdfs:comment "Inning 2 for match 3" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Jonathan
 :Jonathan rdf:type owl:NamedIndividual ,
                    :Player ;
-          :belongsToTeam :Australia .
+          :belongsToTeam :Australia ;
+          rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/K_Ndlovu
 :K_Ndlovu rdf:type owl:NamedIndividual ,
                    :Player ;
-          :belongsToTeam :Zimbabwe .
+          :belongsToTeam :Zimbabwe ;
+          rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Kim_Cotton
 :Kim_Cotton rdf:type owl:NamedIndividual ,
                      :Umpire ;
-            <http://xmlns.com/foaf/0.1/givenName> "Kim Cotton" .
+            <http://xmlns.com/foaf/0.1/givenName> "Kim Cotton" ;
+            rdfs:comment "Umpire"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/ML_Green
@@ -535,14 +550,15 @@ Toss holds - India, Field"""@en ;
                    :Player ;
           owl:differentFrom :NC_Dodd ;
           :belongsToTeam :New_Zealand ;
-          :isManofMatch "true"^^xsd:boolean .
+          :isManofMatch "true"^^xsd:boolean ;
+          rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/M_Short
 :M_Short rdf:type owl:NamedIndividual ,
                   :Umpire ;
-         owl:differentFrom :S_Loftie_Eaton ,
-                           :someumpire .
+         owl:differentFrom :S_Loftie_Eaton ;
+         rdfs:comment "Umpire"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match1
@@ -552,7 +568,8 @@ Toss holds - India, Field"""@en ;
                           :Match3 ;
         :hasOutcomeToss :Toss1 ;
         :isOfficiatedBy :D_Odhiambo ,
-                        :M_Short .
+                        :M_Short ;
+        rdfs:comment "Match 1"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match2
@@ -561,7 +578,8 @@ Toss holds - India, Field"""@en ;
         owl:differentFrom :Match3 ;
         :hasOutcomeToss :Toss2 ;
         :isOfficiatedBy :M_Short ,
-                        :S_Loftie_Eaton .
+                        :S_Loftie_Eaton ;
+        rdfs:comment "Match 2"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match3
@@ -574,7 +592,22 @@ Toss holds - India, Field"""@en ;
         :hasSecondInnings :Inn2_m3 ;
         :hasVenue :venueTest ;
         :isOfficiatedBy :BF_Bowden ,
-                        :Kim_Cotton .
+                        :Kim_Cotton ;
+        rdfs:comment "Match 3"@en .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match_testfinal
+:Match_testfinal rdf:type owl:NamedIndividual ,
+                          :Match ;
+                 :hasAwayTeam :Australia ;
+                 :hasHomeTeam :England ;
+                 :hasOutcome :WinByWickets ;
+                 :hasOutcomeToss :toss_testmatch ;
+                 :hasVenue :venue_testmatch ;
+                 :isOfficiatedBy :ump1_testmatch ,
+                                 :ump2_testmatch ;
+                 :hasDates "2009-06-19T12:00:00"^^xsd:dateTime ;
+                 rdfs:comment "Match final testing" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/NC_Dodd
@@ -582,20 +615,23 @@ Toss holds - India, Field"""@en ;
                   :Player ;
          :belongsToTeam :New_Zealand ;
          :isManofMatch "true"^^xsd:boolean ;
-         <http://xmlns.com/foaf/0.1/givenName> "NC_Dodd" .
+         <http://xmlns.com/foaf/0.1/givenName> "NC_Dodd" ;
+         rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Namibia
 :Namibia rdf:type owl:NamedIndividual ,
                   :Team ;
-         owl:differentFrom :Zimbabwe .
+         owl:differentFrom :Zimbabwe ;
+         rdfs:comment "Team"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/New_Zealand
 :New_Zealand rdf:type owl:NamedIndividual ,
                       :Team ;
              owl:differentFrom :West_indies ;
-             :teamName "New Zealand" .
+             :teamName "New Zealand" ;
+             rdfs:comment "Team"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/NoResult
@@ -609,19 +645,21 @@ Toss holds - India, Field"""@en ;
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/SA_Wittman
 :SA_Wittman rdf:type owl:NamedIndividual ;
             owl:differentFrom :Yasmeen_Khan ;
-            :belongsToTeam :Namibia .
+            :belongsToTeam :Namibia ;
+            rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/SS_Connell
 :SS_Connell rdf:type owl:NamedIndividual ,
                      :Player ;
-            :belongsToTeam :West_indies .
+            :belongsToTeam :West_indies ;
+            rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/S_Loftie_Eaton
 :S_Loftie_Eaton rdf:type owl:NamedIndividual ,
                          :Umpire ;
-                owl:differentFrom :someumpire .
+                rdfs:comment "Umpire"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Tie
@@ -638,7 +676,8 @@ Toss holds - India, Field"""@en ;
                          :Toss3 ,
                          :toss_testmatch ;
        :hasWinner :India ;
-       :hasDecision "bat" .
+       :hasDecision "bat" ;
+       rdfs:comment "Toss"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss2
@@ -646,152 +685,158 @@ Toss holds - India, Field"""@en ;
                 :Toss ;
        owl:differentFrom :Toss3 ;
        :hasWinner :Namibia ;
-       :hasDecision "field" .
+       :hasDecision "field" ;
+       rdfs:comment "Toss"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss3
 :Toss3 rdf:type owl:NamedIndividual ,
                 :Toss ;
        :hasWinner :West_indies ;
-       :hasDecision "field" .
+       :hasDecision "field" ;
+       rdfs:comment "Toss"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/West_indies
 :West_indies rdf:type owl:NamedIndividual ;
-             :teamName "West Indies" .
+             :teamName "West Indies" ;
+             rdfs:comment "Team"@en .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/WinByWickets
+:WinByWickets rdf:type owl:NamedIndividual ,
+                       :Win ;
+              :wickets 3 .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Yasmeen_Khan
 :Yasmeen_Khan rdf:type owl:NamedIndividual ,
                        :Player ;
-              :belongsToTeam :Namibia .
+              :belongsToTeam :Namibia ;
+              rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Zimbabwe
 :Zimbabwe rdf:type owl:NamedIndividual ,
-                   :Team .
+                   :Team ;
+          rdfs:comment "Team"@en .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/inn1_testmatch
+:inn1_testmatch rdf:type owl:NamedIndividual ,
+                         :Innings ;
+                owl:differentFrom :inn2_testmatch ;
+                :hasBattingTeam :Australia ;
+                :isFirstInningsOf :Match_testfinal ;
+                :totalBallsDelivery 122 ;
+                rdfs:comment "The first inning of the individual Match_testfinal"@en .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/inn2_testmatch
+:inn2_testmatch rdf:type owl:NamedIndividual ,
+                         :Innings ;
+                :hasBattingTeam :England ;
+                :isSecondInningsOf :Match_testfinal ;
+                :totalBallsDelivery 120 ;
+                rdfs:comment "Inning 2 for Match_testmatch"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/outcomeTest
 :outcomeTest rdf:type owl:NamedIndividual ,
                       :Outcome ;
-             :runs 12 .
+             :runs 12 ;
+             rdfs:comment "Test Outcome to check if the Outcome class is working or not"@en .
 
 
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/someumpire
-:someumpire rdf:type owl:NamedIndividual ,
-                     :Umpire .
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/pl1_tm_aus
+:pl1_tm_aus rdf:type owl:NamedIndividual ,
+                     :Player ;
+            owl:differentFrom :pl2_tm_aus ;
+            :belongsToTeam :Australia ;
+            :isManofMatch "false"^^xsd:boolean ;
+            <http://xmlns.com/foaf/0.1/givenName> "EA Perry" ;
+            rdfs:comment "Player 1 of Australia for Match_testfinal"@en .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/pl1_tm_eng
+:pl1_tm_eng rdf:type owl:NamedIndividual ,
+                     :Player ;
+            owl:differentFrom :pl2_tm_eng ;
+            :belongsToTeam :England ;
+            :isManofMatch "false"^^xsd:boolean ;
+            <http://xmlns.com/foaf/0.1/givenName> "JL Gunn" ;
+            rdfs:comment "Player 1 of England for Match_testfinal"@en .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/pl2_tm_aus
+:pl2_tm_aus rdf:type owl:NamedIndividual ,
+                     :Player ;
+            :belongsToTeam :Australia ;
+            :isManofMatch "true"^^xsd:boolean ;
+            <http://xmlns.com/foaf/0.1/givenName> "KA Rolton" ;
+            rdfs:comment "Player 2 of Australia for Match_testfinal"@en .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/pl2_tm_eng
+:pl2_tm_eng rdf:type owl:NamedIndividual ,
+                     :Player ;
+            :belongsToTeam :England ;
+            :isManofMatch "true"^^xsd:boolean ;
+            <http://xmlns.com/foaf/0.1/givenName> "NJ Shaw" ;
+            rdfs:comment "Player 2 of England for Match_testfinal"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/testMatch
 :testMatch rdf:type owl:NamedIndividual ,
                     :Match ;
-           :hasOutcome :outcomeTest .
+           :hasOutcome :outcomeTest ;
+           rdfs:comment "A simple test match to check if the outcome is working"@en .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/toss_testmatch
+:toss_testmatch rdf:type owl:NamedIndividual ,
+                         :Toss ;
+                :hasWinner :England ;
+                :hasDecision "field" ;
+                rdfs:comment "Toss for the individual testmatch"@en .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/ump1_testmatch
+:ump1_testmatch rdf:type owl:NamedIndividual ,
+                         :Umpire ;
+                owl:differentFrom :ump2_testmatch ;
+                <http://xmlns.com/foaf/0.1/givenName> "BR Doctrove" ;
+                rdfs:comment "Umpire"@en .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/ump2_testmatch
+:ump2_testmatch rdf:type owl:NamedIndividual ,
+                         :Umpire ;
+                <http://xmlns.com/foaf/0.1/givenName> "AL Hill" ;
+                rdfs:comment "Umpire"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/venueTest
 :venueTest rdf:type owl:NamedIndividual ,
                     :Venue ;
            :neutralVenue "false"^^xsd:boolean ;
-           :venueName "San siro, Milan" .
+           :venueName "San siro, Milan" ;
+           rdfs:comment "Venue for testing if the Venue class works"@en .
 
 
-###  https://www.dei.unipd.it/lodb/Cricketontology#Match_testfinal
-:Match_testfinal rdf:type owl:NamedIndividual ,
-                          :Match ;
-                 :hasAwayTeam :Australia ;
-                 :hasHomeTeam :England ;
-                 :hasOutcome :WinByWickets ;
-                 :hasOutcomeToss :toss_testmatch ;
-                 :hasVenue :venue_testmatch ;
-                 :isOfficiatedBy :ump1_testmatch ,
-                                 :ump2_testmatch ;
-                 :hasDates "2009-06-19T12:00:00"^^xsd:dateTime .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#WinByWickets
-:WinByWickets rdf:type owl:NamedIndividual ,
-                       :Win ;
-              :wickets 3 .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#inn1_testmatch
-:inn1_testmatch rdf:type owl:NamedIndividual ,
-                         :Innings ;
-                owl:differentFrom :inn2_testmatch ;
-                :hasBattingTeam :Australia ;
-                :isFirstInningsOf :Match_testfinal ;
-                :totalBallsDelivery 122 .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#inn2_testmatch
-:inn2_testmatch rdf:type owl:NamedIndividual ,
-                         :Innings ;
-                :hasBattingTeam :England ;
-                :isSecondInningsOf :Match_testfinal ;
-                :totalBallsDelivery 120 .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#outcome_testmatch
-:outcome_testmatch rdf:type owl:NamedIndividual ,
-                            :Outcome .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#pl1_tm_aus
-:pl1_tm_aus rdf:type owl:NamedIndividual ,
-                     :Player ;
-            owl:differentFrom :pl2_tm_aus ;
-            :belongsToTeam :Australia ;
-            <http://xmlns.com/foaf/0.1/givenName> "EA Perry" .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#pl1_tm_eng
-:pl1_tm_eng rdf:type owl:NamedIndividual ,
-                     :Player ;
-            owl:differentFrom :pl2_tm_eng ;
-            :belongsToTeam :England ;
-            <http://xmlns.com/foaf/0.1/givenName> "JL Gunn" .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#pl2_tm_aus
-:pl2_tm_aus rdf:type owl:NamedIndividual ,
-                     :Player ;
-            :belongsToTeam :Australia ;
-            <http://xmlns.com/foaf/0.1/givenName> "KA Rolton" .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#pl2_tm_eng
-:pl2_tm_eng rdf:type owl:NamedIndividual ,
-                     :Player ;
-            :belongsToTeam :England ;
-            <http://xmlns.com/foaf/0.1/givenName> "NJ Shaw" .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#toss_testmatch
-:toss_testmatch rdf:type owl:NamedIndividual ,
-                         :Toss ;
-                :hasWinner :England ;
-                :hasDecision "field" .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#ump1_testmatch
-:ump1_testmatch rdf:type owl:NamedIndividual ,
-                         :Umpire ;
-                owl:differentFrom :ump2_testmatch ;
-                <http://xmlns.com/foaf/0.1/givenName> "BR Doctrove" .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#ump2_testmatch
-:ump2_testmatch rdf:type owl:NamedIndividual ,
-                         :Umpire ;
-                <http://xmlns.com/foaf/0.1/givenName> "AL Hill" .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#venue_testmatch
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/venue_testmatch
 :venue_testmatch rdf:type owl:NamedIndividual ,
                           :Venue ;
                  :neutralVenue "false"^^xsd:boolean ;
-                 :venueName "London" .
+                 :venueName "London" ;
+                 rdfs:comment "Venue"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:WinByWickets rdfs:comment "Class representing the Win by certain number of wickets" .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
