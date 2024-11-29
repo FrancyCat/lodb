@@ -265,6 +265,15 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                                       rdfs:range xsd:string .
 
 
+###  https://www.dei.unipd.it/lodb/Cricketontology#hasMatchID
+:hasMatchID rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Match ;
+            rdfs:range xsd:integer ;
+            rdfs:comment "Denotes the id of a specific match"@en ;
+            rdfs:label "hasMatchID"@en .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -569,6 +578,7 @@ Toss holds - India, Field"""@en ;
         :hasOutcomeToss :Toss1 ;
         :isOfficiatedBy :D_Odhiambo ,
                         :M_Short ;
+        :hasMatchID 1 ;
         rdfs:comment "Match 1"@en .
 
 
@@ -579,6 +589,7 @@ Toss holds - India, Field"""@en ;
         :hasOutcomeToss :Toss2 ;
         :isOfficiatedBy :M_Short ,
                         :S_Loftie_Eaton ;
+        :hasMatchID 2 ;
         rdfs:comment "Match 2"@en .
 
 
@@ -593,6 +604,8 @@ Toss holds - India, Field"""@en ;
         :hasVenue :venueTest ;
         :isOfficiatedBy :BF_Bowden ,
                         :Kim_Cotton ;
+        :hasDates "2001-06-25T09:00:00"^^xsd:dateTime ;
+        :hasMatchID 3 ;
         rdfs:comment "Match 3"@en .
 
 
@@ -607,6 +620,7 @@ Toss holds - India, Field"""@en ;
                  :isOfficiatedBy :ump1_testmatch ,
                                  :ump2_testmatch ;
                  :hasDates "2009-06-19T12:00:00"^^xsd:dateTime ;
+                 :hasMatchID 10 ;
                  rdfs:comment "Match final testing" .
 
 
