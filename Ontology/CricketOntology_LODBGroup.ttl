@@ -161,6 +161,14 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
        rdfs:label "wonBy"@en .
 
 
+###  https://www.dei.unipd.it/lodb/Cricketontology#hasTieBreakWinner
+:hasTieBreakWinner rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain :Tie ;
+                   rdfs:range :Team ;
+                   rdfs:comment "When a match ends in a Tie, the winner could be decided through a tie break" .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -188,6 +196,15 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                         ] ;
              rdfs:comment "It represents a decison outcome of toss, the winner team either chooses to bat or field, so it has two values."@en ;
              rdfs:label "hasDecision"@en .
+
+
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasMatchID
+:hasMatchID rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Match ;
+            rdfs:range xsd:integer ;
+            rdfs:comment "Denotes the id of a specific match"@en ;
+            rdfs:label "hasMatchID"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/isManofMatch
@@ -263,15 +280,6 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 <http://xmlns.com/foaf/0.1/givenName> rdf:type owl:FunctionalProperty ;
                                       rdfs:domain <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
                                       rdfs:range xsd:string .
-
-
-###  https://www.dei.unipd.it/lodb/Cricketontology#hasMatchID
-:hasMatchID rdf:type owl:DatatypeProperty ,
-                     owl:FunctionalProperty ;
-            rdfs:domain :Match ;
-            rdfs:range xsd:integer ;
-            rdfs:comment "Denotes the id of a specific match"@en ;
-            rdfs:label "hasMatchID"@en .
 
 
 #################################################################
@@ -426,7 +434,8 @@ Toss holds - India, Field"""@en ;
                            owl:onClass :Team
                          ] ;
      rdfs:subClassOf :Outcome ;
-     owl:disjointWith <http://www.w3.org/2004/02/skos/core#Concept> ;
+     owl:disjointWith <http://www.w3.org/2004/02/skos/core#Concept> ,
+                      :Tie ;
      rdfs:comment "This class describes the wins (if that's the outcome)" .
 
 
@@ -444,6 +453,20 @@ Toss holds - India, Field"""@en ;
 
 ###  http://www.w3.org/2000/10/swap/pim/contact#Person
 <http://www.w3.org/2000/10/swap/pim/contact#Person> rdfs:comment "The class that includes the Umpire and People" .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> owl:disjointWith :Tie .
+
+
+###  https://www.dei.unipd.it/lodb/Cricketontology#Tie
+:Tie rdf:type owl:Class ;
+     rdfs:subClassOf :Outcome ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasTieBreakWinner ;
+                       owl:someValuesFrom :Team
+                     ] ;
+     rdfs:comment "Class representing a Tie" .
 
 
 #################################################################
@@ -652,7 +675,6 @@ Toss holds - India, Field"""@en ;
 :NoResult rdf:type owl:NamedIndividual ,
                    :Outcome ,
                    <http://www.w3.org/2004/02/skos/core#Concept> ;
-          owl:differentFrom :Tie ;
           rdfs:comment "This a skos:Concept representing a no result as outcome of the match" .
 
 
@@ -674,13 +696,6 @@ Toss holds - India, Field"""@en ;
 :S_Loftie_Eaton rdf:type owl:NamedIndividual ,
                          :Umpire ;
                 rdfs:comment "Umpire"@en .
-
-
-###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Tie
-:Tie rdf:type owl:NamedIndividual ,
-              :Outcome ,
-              <http://www.w3.org/2004/02/skos/core#Concept> ;
-     rdfs:comment "This a skos:Concept representing a tie as outcome of the match" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss1
@@ -844,6 +859,12 @@ Toss holds - India, Field"""@en ;
                  :neutralVenue "false"^^xsd:boolean ;
                  :venueName "London" ;
                  rdfs:comment "Venue"@en .
+
+
+###  https://www.dei.unipd.it/lodb/Cricketontology#TieTest
+:TieTest rdf:type owl:NamedIndividual ,
+                  :Tie ;
+         :hasTieBreakWinner :India .
 
 
 #################################################################
