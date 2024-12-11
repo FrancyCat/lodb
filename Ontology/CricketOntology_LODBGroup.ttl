@@ -117,15 +117,6 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
           rdfs:label "hasVenue" .
 
 
-###  https://www.dei.unipd.it/lodb/cri#hasWinner
-:hasWinner rdf:type owl:ObjectProperty ,
-                    owl:FunctionalProperty ;
-           rdfs:domain :Toss ;
-           rdfs:range :Team ;
-           rdfs:comment "Its links toss decision with the team. Data contains toss winner teams for every innings."@en ;
-           rdfs:label "hasWinner"@en .
-
-
 ###  https://www.dei.unipd.it/lodb/cri#isFirstInningsOf
 :isFirstInningsOf rdf:type owl:ObjectProperty ,
                            owl:FunctionalProperty ;
@@ -167,6 +158,15 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
        rdfs:range :Team ;
        rdfs:comment "Property that links a Win to the winning Team."@en ;
        rdfs:label "wonBy"@en .
+
+
+###  https://www.dei.unipd.it/lodb/cri#/hasWinner
+<https://www.dei.unipd.it/lodb/cri#/hasWinner> rdf:type owl:ObjectProperty ,
+                                                        owl:FunctionalProperty ;
+                                               rdfs:domain :Toss ;
+                                               rdfs:range :Team ;
+                                               rdfs:comment "Its links toss decision with the team. Data contains toss winner teams for every innings."@en ;
+                                               rdfs:label "hasWinner"@en .
 
 
 #################################################################
@@ -410,7 +410,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 ###  https://www.dei.unipd.it/lodb/cri#Toss
 :Toss rdf:type owl:Class ;
       owl:equivalentClass [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasWinner ;
+                            owl:onProperty <https://www.dei.unipd.it/lodb/cri#/hasWinner> ;
                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onClass :Team
                           ] ,
@@ -698,13 +698,19 @@ Toss holds - India, Field"""@en ;
                 rdfs:comment "Umpire"@en .
 
 
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/TieTest
+:TieTest rdf:type owl:NamedIndividual ,
+                  :Tie ;
+         :hasTieBreakWinner :India .
+
+
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss1
 :Toss1 rdf:type owl:NamedIndividual ,
                 :Toss ;
        owl:differentFrom :Toss2 ,
                          :Toss3 ,
                          :toss_testmatch ;
-       :hasWinner :India ;
+       <https://www.dei.unipd.it/lodb/cri#/hasWinner> :India ;
        :hasDecision "bat" ;
        rdfs:comment "Toss"@en .
 
@@ -713,7 +719,7 @@ Toss holds - India, Field"""@en ;
 :Toss2 rdf:type owl:NamedIndividual ,
                 :Toss ;
        owl:differentFrom :Toss3 ;
-       :hasWinner :Namibia ;
+       <https://www.dei.unipd.it/lodb/cri#/hasWinner> :Namibia ;
        :hasDecision "field" ;
        rdfs:comment "Toss"@en .
 
@@ -721,7 +727,7 @@ Toss holds - India, Field"""@en ;
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss3
 :Toss3 rdf:type owl:NamedIndividual ,
                 :Toss ;
-       :hasWinner :West_indies ;
+       <https://www.dei.unipd.it/lodb/cri#/hasWinner> :West_indies ;
        :hasDecision "field" ;
        rdfs:comment "Toss"@en .
 
@@ -819,7 +825,7 @@ Toss holds - India, Field"""@en ;
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/toss_testmatch
 :toss_testmatch rdf:type owl:NamedIndividual ,
                          :Toss ;
-                :hasWinner :England ;
+                <https://www.dei.unipd.it/lodb/cri#/hasWinner> :England ;
                 :hasDecision "field" ;
                 rdfs:comment "Toss for the individual testmatch"@en .
 
@@ -853,12 +859,6 @@ Toss holds - India, Field"""@en ;
                  :neutralVenue "false"^^xsd:boolean ;
                  :venueName "London" ;
                  rdfs:comment "Venue"@en .
-
-
-###  https://www.dei.unipd.it/lodb/cri#TieTest
-:TieTest rdf:type owl:NamedIndividual ,
-                  :Tie ;
-         :hasTieBreakWinner :India .
 
 
 ###  https://www.dei.unipd.it/lodb/cri#WinByWickets
