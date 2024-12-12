@@ -231,6 +231,25 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                                                  rdfs:label "neutralVenue"@en .
 
 
+###  https://www.dei.unipd.it/lodb/cri/outcomeDescription
+<https://www.dei.unipd.it/lodb/cri/outcomeDescription> rdf:type owl:DatatypeProperty ,
+                                                                owl:FunctionalProperty ;
+                                                       rdfs:domain <https://www.dei.unipd.it/lodb/cri/Outcome> ;
+                                                       rdfs:range [ rdf:type rdfs:Datatype ;
+                                                                    owl:oneOf [ rdf:type rdf:List ;
+                                                                                rdf:first "no result" ;
+                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                           rdf:first "tie" ;
+                                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                                      rdf:first "win" ;
+                                                                                                      rdf:rest rdf:nil
+                                                                                                    ]
+                                                                                         ]
+                                                                              ]
+                                                                  ] ;
+                                                       rdfs:comment "Describes literally (as in words) the Outcome of the Match" .
+
+
 ###  https://www.dei.unipd.it/lodb/cri/runs
 <https://www.dei.unipd.it/lodb/cri/runs> rdf:type owl:DatatypeProperty ,
                                                   owl:FunctionalProperty ;
@@ -358,6 +377,10 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 ###  https://www.dei.unipd.it/lodb/cri/Outcome
 <https://www.dei.unipd.it/lodb/cri/Outcome> rdf:type owl:Class ;
+                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <https://www.dei.unipd.it/lodb/cri/outcomeDescription> ;
+                                                              owl:someValuesFrom xsd:string
+                                                            ] ;
                                             owl:disjointWith <https://www.dei.unipd.it/lodb/cri/Team> ;
                                             rdfs:comment "This class represents the outcome of the matches" ;
                                             rdfs:label "Outcome" .
@@ -402,6 +425,10 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                                                         [ rdf:type owl:Restriction ;
                                                           owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasTieBreakWinner> ;
                                                           owl:someValuesFrom <https://www.dei.unipd.it/lodb/cri/Team>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <https://www.dei.unipd.it/lodb/cri/outcomeDescription> ;
+                                                          owl:hasValue "tie"
                                                         ] ;
                                         owl:disjointWith <https://www.dei.unipd.it/lodb/cri/Win> ;
                                         rdfs:comment "Class representing a Tie" .
@@ -453,7 +480,11 @@ Toss holds - India, Field"""@en ;
                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                               owl:onClass <https://www.dei.unipd.it/lodb/cri/Team>
                                                             ] ;
-                                        rdfs:subClassOf <https://www.dei.unipd.it/lodb/cri/Outcome> ;
+                                        rdfs:subClassOf <https://www.dei.unipd.it/lodb/cri/Outcome> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <https://www.dei.unipd.it/lodb/cri/outcomeDescription> ;
+                                                          owl:hasValue "win"
+                                                        ] ;
                                         rdfs:comment "This class describes the wins (if that's the outcome)" .
 
 
