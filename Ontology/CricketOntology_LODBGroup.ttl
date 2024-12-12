@@ -17,156 +17,156 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 #    Object Properties
 #################################################################
 
-###  https://www.dei.unipd.it/lodb/cri#belongsToTeam
-:belongsToTeam rdf:type owl:ObjectProperty ;
-               owl:inverseOf :hasPlayer ;
-               rdf:type owl:FunctionalProperty ;
-               rdfs:domain :Player ;
-               rdfs:range :Team ;
-               rdfs:comment "It represents an object property that links player with the team, stating which player belongs to which team"@en ;
-               rdfs:label "belongsToTeam"@en .
+###  https://www.dei.unipd.it/lodb/cri/belongsToTeam
+<https://www.dei.unipd.it/lodb/cri/belongsToTeam> rdf:type owl:ObjectProperty ;
+                                                  owl:inverseOf <https://www.dei.unipd.it/lodb/cri/hasPlayer> ;
+                                                  rdf:type owl:FunctionalProperty ;
+                                                  rdfs:domain <https://www.dei.unipd.it/lodb/cri/Player> ;
+                                                  rdfs:range <https://www.dei.unipd.it/lodb/cri/Team> ;
+                                                  rdfs:comment "It represents an object property that links player with the team, stating which player belongs to which team"@en ;
+                                                  rdfs:label "belongsToTeam"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#hasAwayTeam
-:hasAwayTeam rdf:type owl:ObjectProperty ,
-                      owl:FunctionalProperty ;
-             rdfs:domain :Match ;
-             rdfs:range :Team ;
-             rdfs:comment "It consists of the Away Team of the cricket match" ;
-             rdfs:label "hasAwayTeam" .
+###  https://www.dei.unipd.it/lodb/cri/hasAwayTeam
+<https://www.dei.unipd.it/lodb/cri/hasAwayTeam> rdf:type owl:ObjectProperty ,
+                                                         owl:FunctionalProperty ;
+                                                rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                                rdfs:range <https://www.dei.unipd.it/lodb/cri/Team> ;
+                                                rdfs:comment "It consists of the Away Team of the cricket match" ;
+                                                rdfs:label "hasAwayTeam" .
 
 
-###  https://www.dei.unipd.it/lodb/cri#hasBattingTeam
-:hasBattingTeam rdf:type owl:ObjectProperty ,
-                         owl:FunctionalProperty ;
-                rdfs:domain :Innings ;
-                rdfs:range :Team ;
-                rdfs:comment "It represents the batting team of each Inning."@en ;
-                rdfs:label "hasBattingTeam"@en .
+###  https://www.dei.unipd.it/lodb/cri/hasBattingTeam
+<https://www.dei.unipd.it/lodb/cri/hasBattingTeam> rdf:type owl:ObjectProperty ,
+                                                            owl:FunctionalProperty ;
+                                                   rdfs:domain <https://www.dei.unipd.it/lodb/cri/Innings> ;
+                                                   rdfs:range <https://www.dei.unipd.it/lodb/cri/Team> ;
+                                                   rdfs:comment "It represents the batting team of each Inning."@en ;
+                                                   rdfs:label "hasBattingTeam"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#hasFirstInnings
-:hasFirstInnings rdf:type owl:ObjectProperty ;
-                 owl:inverseOf :isFirstInningsOf ;
-                 rdf:type owl:FunctionalProperty ;
-                 rdfs:domain :Match ;
-                 rdfs:range :Innings ;
-                 rdfs:comment "It represents the object property from Match to Innings, stating the 1st inning of the match." ;
-                 rdfs:label "hasFirstInnings" .
+###  https://www.dei.unipd.it/lodb/cri/hasFirstInnings
+<https://www.dei.unipd.it/lodb/cri/hasFirstInnings> rdf:type owl:ObjectProperty ;
+                                                    owl:inverseOf <https://www.dei.unipd.it/lodb/cri/isFirstInningsOf> ;
+                                                    rdf:type owl:FunctionalProperty ;
+                                                    rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                                    rdfs:range <https://www.dei.unipd.it/lodb/cri/Innings> ;
+                                                    rdfs:comment "It represents the object property from Match to Innings, stating the 1st inning of the match." ;
+                                                    rdfs:label "hasFirstInnings" .
 
 
-###  https://www.dei.unipd.it/lodb/cri#hasHomeTeam
-:hasHomeTeam rdf:type owl:ObjectProperty ,
-                      owl:FunctionalProperty ;
-             rdfs:domain :Match ;
-             rdfs:range :Team ;
-             rdfs:comment "Links Match to Team. Denotes the Home team" ;
-             rdfs:label "hasHomeTeam" .
+###  https://www.dei.unipd.it/lodb/cri/hasHomeTeam
+<https://www.dei.unipd.it/lodb/cri/hasHomeTeam> rdf:type owl:ObjectProperty ,
+                                                         owl:FunctionalProperty ;
+                                                rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                                rdfs:range <https://www.dei.unipd.it/lodb/cri/Team> ;
+                                                rdfs:comment "Links Match to Team. Denotes the Home team" ;
+                                                rdfs:label "hasHomeTeam" .
 
 
-###  https://www.dei.unipd.it/lodb/cri#hasOutcome
-:hasOutcome rdf:type owl:ObjectProperty ,
-                     owl:FunctionalProperty ;
-            rdfs:domain :Match ;
-            rdfs:range :Outcome ;
-            rdfs:comment "Its a Property that links a Match class with the  Outcome class."@en ;
-            rdfs:label "hasOutcome"@en .
-
-
-###  https://www.dei.unipd.it/lodb/cri#hasOutcomeToss
-:hasOutcomeToss rdf:type owl:ObjectProperty ,
-                         owl:FunctionalProperty ;
-                rdfs:domain :Match ;
-                rdfs:range :Toss ;
-                rdfs:comment "It represnts a property that links match with toss outcome." ;
-                rdfs:label "hasOutcomeToss"@en .
-
-
-###  https://www.dei.unipd.it/lodb/cri#hasPlayer
-:hasPlayer rdf:type owl:ObjectProperty ;
-           rdfs:domain :Team ;
-           rdfs:range :Player ;
-           rdfs:comment "It represents the property that links team with the player. It is inverse of another property belongToTeam which shows relation of player with team."@en ;
-           rdfs:label "hasPlayer"@en .
-
-
-###  https://www.dei.unipd.it/lodb/cri#hasSecondInnings
-:hasSecondInnings rdf:type owl:ObjectProperty ;
-                  owl:inverseOf :isSecondInningsOf ;
-                  rdf:type owl:FunctionalProperty ;
-                  rdfs:domain :Match ;
-                  rdfs:range :Innings ;
-                  rdfs:comment "It represents the object property from Match to Innings, stating the 2nd inning of the match." ;
-                  rdfs:label "hasSecondInnings" .
-
-
-###  https://www.dei.unipd.it/lodb/cri#hasTieBreakWinner
-:hasTieBreakWinner rdf:type owl:ObjectProperty ,
-                            owl:FunctionalProperty ;
-                   rdfs:domain :Tie ;
-                   rdfs:range :Team ;
-                   rdfs:comment "When a match ends in a Tie, the winner could be decided through a tie break" .
-
-
-###  https://www.dei.unipd.it/lodb/cri#hasVenue
-:hasVenue rdf:type owl:ObjectProperty ,
-                   owl:FunctionalProperty ;
-          rdfs:domain :Match ;
-          rdfs:range :Venue ;
-          rdfs:comment "It is the object property that links Match to the Venue class, stating that a match took place in a particular venue" ;
-          rdfs:label "hasVenue" .
-
-
-###  https://www.dei.unipd.it/lodb/cri#isFirstInningsOf
-:isFirstInningsOf rdf:type owl:ObjectProperty ,
-                           owl:FunctionalProperty ;
-                  rdfs:domain :Innings ;
-                  rdfs:range :Match ;
-                  rdfs:comment "It is the object property that connects Innings to Match, stating that Inning 1 is the first inning of which match." ;
-                  rdfs:label "isFirstInningsOf" .
-
-
-###  https://www.dei.unipd.it/lodb/cri#isOfficiatedBy
-:isOfficiatedBy rdf:type owl:ObjectProperty ;
-                owl:inverseOf :officiatedInMatch ;
-                rdfs:domain :Match ;
-                rdfs:range :Umpire ;
-                rdfs:comment "It links match with the umpire, stating that a match is officiated by which umpires. It has inverse property officiatedInMatch, that links umpire with match."@en ;
-                rdfs:label "isOfficiatedBy"@en .
-
-
-###  https://www.dei.unipd.it/lodb/cri#isSecondInningsOf
-:isSecondInningsOf rdf:type owl:ObjectProperty ;
-                   rdfs:domain :Innings ;
-                   rdfs:range :Match ;
-                   rdfs:comment "It is the object property that connects Innings to Match, stating that Inning 2 is the second inning of which match." ,
-                                "isSecondInningsOf" .
-
-
-###  https://www.dei.unipd.it/lodb/cri#officiatedInMatch
-:officiatedInMatch rdf:type owl:ObjectProperty ;
-                   rdfs:domain :Umpire ;
-                   rdfs:range :Match ;
-                   rdfs:comment "it represents the property that links umpire with match. Its an inverse of is OfficiatedBy property that links match with umpire."@en ;
-                   rdfs:label "officiatedInMatch"@en .
-
-
-###  https://www.dei.unipd.it/lodb/cri#wonBy
-:wonBy rdf:type owl:ObjectProperty ,
-                owl:FunctionalProperty ;
-       rdfs:domain :Win ;
-       rdfs:range :Team ;
-       rdfs:comment "Property that links a Win to the winning Team."@en ;
-       rdfs:label "wonBy"@en .
-
-
-###  https://www.dei.unipd.it/lodb/cri#/hasWinner
-<https://www.dei.unipd.it/lodb/cri#/hasWinner> rdf:type owl:ObjectProperty ,
+###  https://www.dei.unipd.it/lodb/cri/hasOutcome
+<https://www.dei.unipd.it/lodb/cri/hasOutcome> rdf:type owl:ObjectProperty ,
                                                         owl:FunctionalProperty ;
-                                               rdfs:domain :Toss ;
-                                               rdfs:range :Team ;
-                                               rdfs:comment "Its links toss decision with the team. Data contains toss winner teams for every innings."@en ;
-                                               rdfs:label "hasWinner"@en .
+                                               rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                               rdfs:range <https://www.dei.unipd.it/lodb/cri/Outcome> ;
+                                               rdfs:comment "Its a Property that links a Match class with the  Outcome class."@en ;
+                                               rdfs:label "hasOutcome"@en .
+
+
+###  https://www.dei.unipd.it/lodb/cri/hasOutcomeToss
+<https://www.dei.unipd.it/lodb/cri/hasOutcomeToss> rdf:type owl:ObjectProperty ,
+                                                            owl:FunctionalProperty ;
+                                                   rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                                   rdfs:range <https://www.dei.unipd.it/lodb/cri/Toss> ;
+                                                   rdfs:comment "It represnts a property that links match with toss outcome." ;
+                                                   rdfs:label "hasOutcomeToss"@en .
+
+
+###  https://www.dei.unipd.it/lodb/cri/hasPlayer
+<https://www.dei.unipd.it/lodb/cri/hasPlayer> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain <https://www.dei.unipd.it/lodb/cri/Team> ;
+                                              rdfs:range <https://www.dei.unipd.it/lodb/cri/Player> ;
+                                              rdfs:comment "It represents the property that links team with the player. It is inverse of another property belongToTeam which shows relation of player with team."@en ;
+                                              rdfs:label "hasPlayer"@en .
+
+
+###  https://www.dei.unipd.it/lodb/cri/hasSecondInnings
+<https://www.dei.unipd.it/lodb/cri/hasSecondInnings> rdf:type owl:ObjectProperty ;
+                                                     owl:inverseOf <https://www.dei.unipd.it/lodb/cri/isSecondInningsOf> ;
+                                                     rdf:type owl:FunctionalProperty ;
+                                                     rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                                     rdfs:range <https://www.dei.unipd.it/lodb/cri/Innings> ;
+                                                     rdfs:comment "It represents the object property from Match to Innings, stating the 2nd inning of the match." ;
+                                                     rdfs:label "hasSecondInnings" .
+
+
+###  https://www.dei.unipd.it/lodb/cri/hasTieBreakWinner
+<https://www.dei.unipd.it/lodb/cri/hasTieBreakWinner> rdf:type owl:ObjectProperty ,
+                                                               owl:FunctionalProperty ;
+                                                      rdfs:domain <https://www.dei.unipd.it/lodb/cri/Tie> ;
+                                                      rdfs:range <https://www.dei.unipd.it/lodb/cri/Team> ;
+                                                      rdfs:comment "When a match ends in a Tie, the winner could be decided through a tie break" .
+
+
+###  https://www.dei.unipd.it/lodb/cri/hasVenue
+<https://www.dei.unipd.it/lodb/cri/hasVenue> rdf:type owl:ObjectProperty ,
+                                                      owl:FunctionalProperty ;
+                                             rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                             rdfs:range <https://www.dei.unipd.it/lodb/cri/Venue> ;
+                                             rdfs:comment "It is the object property that links Match to the Venue class, stating that a match took place in a particular venue" ;
+                                             rdfs:label "hasVenue" .
+
+
+###  https://www.dei.unipd.it/lodb/cri/hasWinner
+<https://www.dei.unipd.it/lodb/cri/hasWinner> rdf:type owl:ObjectProperty ,
+                                                       owl:FunctionalProperty ;
+                                              rdfs:domain <https://www.dei.unipd.it/lodb/cri/Toss> ;
+                                              rdfs:range <https://www.dei.unipd.it/lodb/cri/Team> ;
+                                              rdfs:comment "Its links toss decision with the team. Data contains toss winner teams for every innings."@en ;
+                                              rdfs:label "hasWinner"@en .
+
+
+###  https://www.dei.unipd.it/lodb/cri/isFirstInningsOf
+<https://www.dei.unipd.it/lodb/cri/isFirstInningsOf> rdf:type owl:ObjectProperty ,
+                                                              owl:FunctionalProperty ;
+                                                     rdfs:domain <https://www.dei.unipd.it/lodb/cri/Innings> ;
+                                                     rdfs:range <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                                     rdfs:comment "It is the object property that connects Innings to Match, stating that Inning 1 is the first inning of which match." ;
+                                                     rdfs:label "isFirstInningsOf" .
+
+
+###  https://www.dei.unipd.it/lodb/cri/isOfficiatedBy
+<https://www.dei.unipd.it/lodb/cri/isOfficiatedBy> rdf:type owl:ObjectProperty ;
+                                                   owl:inverseOf <https://www.dei.unipd.it/lodb/cri/officiatedInMatch> ;
+                                                   rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                                   rdfs:range <https://www.dei.unipd.it/lodb/cri/Umpire> ;
+                                                   rdfs:comment "It links match with the umpire, stating that a match is officiated by which umpires. It has inverse property officiatedInMatch, that links umpire with match."@en ;
+                                                   rdfs:label "isOfficiatedBy"@en .
+
+
+###  https://www.dei.unipd.it/lodb/cri/isSecondInningsOf
+<https://www.dei.unipd.it/lodb/cri/isSecondInningsOf> rdf:type owl:ObjectProperty ;
+                                                      rdfs:domain <https://www.dei.unipd.it/lodb/cri/Innings> ;
+                                                      rdfs:range <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                                      rdfs:comment "It is the object property that connects Innings to Match, stating that Inning 2 is the second inning of which match." ,
+                                                                   "isSecondInningsOf" .
+
+
+###  https://www.dei.unipd.it/lodb/cri/officiatedInMatch
+<https://www.dei.unipd.it/lodb/cri/officiatedInMatch> rdf:type owl:ObjectProperty ;
+                                                      rdfs:domain <https://www.dei.unipd.it/lodb/cri/Umpire> ;
+                                                      rdfs:range <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                                      rdfs:comment "it represents the property that links umpire with match. Its an inverse of is OfficiatedBy property that links match with umpire."@en ;
+                                                      rdfs:label "officiatedInMatch"@en .
+
+
+###  https://www.dei.unipd.it/lodb/cri/wonBy
+<https://www.dei.unipd.it/lodb/cri/wonBy> rdf:type owl:ObjectProperty ,
+                                                   owl:FunctionalProperty ;
+                                          rdfs:domain <https://www.dei.unipd.it/lodb/cri/Win> ;
+                                          rdfs:range <https://www.dei.unipd.it/lodb/cri/Team> ;
+                                          rdfs:comment "Property that links a Win to the winning Team."@en ;
+                                          rdfs:label "wonBy"@en .
 
 
 #################################################################
@@ -179,107 +179,107 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                                       rdfs:range xsd:string .
 
 
-###  https://www.dei.unipd.it/lodb/cri#hasDates
-:hasDates rdf:type owl:DatatypeProperty ;
-          rdfs:domain :Match ;
-          rdfs:range xsd:dateTime ;
-          rdfs:comment "This property represents the date of the match. Every match had been played on certain date."@en ;
-          rdfs:label "hasDates"@en .
+###  https://www.dei.unipd.it/lodb/cri/hasDates
+<https://www.dei.unipd.it/lodb/cri/hasDates> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                             rdfs:range xsd:dateTime ;
+                                             rdfs:comment "This property represents the date of the match. Every match had been played on certain date."@en ;
+                                             rdfs:label "hasDates"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#hasDecision
-:hasDecision rdf:type owl:DatatypeProperty ,
-                      owl:FunctionalProperty ;
-             rdfs:domain :Toss ;
-             rdfs:range [ rdf:type rdfs:Datatype ;
-                          owl:oneOf [ rdf:type rdf:List ;
-                                      rdf:first "bat" ;
-                                      rdf:rest [ rdf:type rdf:List ;
-                                                 rdf:first "field" ;
-                                                 rdf:rest rdf:nil
-                                               ]
-                                    ]
-                        ] ;
-             rdfs:comment "It represents a decison outcome of toss, the winner team either chooses to bat or field, so it has two values."@en ;
-             rdfs:label "hasDecision"@en .
+###  https://www.dei.unipd.it/lodb/cri/hasDecision
+<https://www.dei.unipd.it/lodb/cri/hasDecision> rdf:type owl:DatatypeProperty ,
+                                                         owl:FunctionalProperty ;
+                                                rdfs:domain <https://www.dei.unipd.it/lodb/cri/Toss> ;
+                                                rdfs:range [ rdf:type rdfs:Datatype ;
+                                                             owl:oneOf [ rdf:type rdf:List ;
+                                                                         rdf:first "bat" ;
+                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                    rdf:first "field" ;
+                                                                                    rdf:rest rdf:nil
+                                                                                  ]
+                                                                       ]
+                                                           ] ;
+                                                rdfs:comment "It represents a decison outcome of toss, the winner team either chooses to bat or field, so it has two values."@en ;
+                                                rdfs:label "hasDecision"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#hasMatchID
-:hasMatchID rdf:type owl:DatatypeProperty ,
-                     owl:FunctionalProperty ;
-            rdfs:domain :Match ;
-            rdfs:range xsd:integer ;
-            rdfs:comment "Denotes the id of a specific match"@en ;
-            rdfs:label "hasMatchID"@en .
+###  https://www.dei.unipd.it/lodb/cri/hasMatchID
+<https://www.dei.unipd.it/lodb/cri/hasMatchID> rdf:type owl:DatatypeProperty ,
+                                                        owl:FunctionalProperty ;
+                                               rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
+                                               rdfs:range xsd:integer ;
+                                               rdfs:comment "Denotes the id of a specific match"@en ;
+                                               rdfs:label "hasMatchID"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#isManofMatch
-:isManofMatch rdf:type owl:DatatypeProperty ,
-                       owl:FunctionalProperty ;
-              rdfs:domain :Player ;
-              rdfs:range xsd:boolean ;
-              rdfs:comment "This property represents player who got man of the match title. It will show the name of player (if any) got this title in a particular match."@en ;
-              rdfs:label "isManofMatch"@en .
+###  https://www.dei.unipd.it/lodb/cri/isManofMatch
+<https://www.dei.unipd.it/lodb/cri/isManofMatch> rdf:type owl:DatatypeProperty ,
+                                                          owl:FunctionalProperty ;
+                                                 rdfs:domain <https://www.dei.unipd.it/lodb/cri/Player> ;
+                                                 rdfs:range xsd:boolean ;
+                                                 rdfs:comment "This property represents player who got man of the match title. It will show the name of player (if any) got this title in a particular match."@en ;
+                                                 rdfs:label "isManofMatch"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#neutralVenue
-:neutralVenue rdf:type owl:DatatypeProperty ,
-                       owl:FunctionalProperty ;
-              rdfs:domain :Venue ;
-              rdfs:range xsd:boolean ;
-              rdfs:comment "States if a venue belongs to the Home Team or is neutral" ;
-              rdfs:label "neutralVenue"@en .
+###  https://www.dei.unipd.it/lodb/cri/neutralVenue
+<https://www.dei.unipd.it/lodb/cri/neutralVenue> rdf:type owl:DatatypeProperty ,
+                                                          owl:FunctionalProperty ;
+                                                 rdfs:domain <https://www.dei.unipd.it/lodb/cri/Venue> ;
+                                                 rdfs:range xsd:boolean ;
+                                                 rdfs:comment "States if a venue belongs to the Home Team or is neutral" ;
+                                                 rdfs:label "neutralVenue"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#runs
-:runs rdf:type owl:DatatypeProperty ,
-               owl:FunctionalProperty ;
-      rdfs:domain :WinByRuns ;
-      rdfs:range xsd:integer ;
-      rdfs:comment "Number of runs by which a match has been won" ;
-      rdfs:label "runs"@en .
+###  https://www.dei.unipd.it/lodb/cri/runs
+<https://www.dei.unipd.it/lodb/cri/runs> rdf:type owl:DatatypeProperty ,
+                                                  owl:FunctionalProperty ;
+                                         rdfs:domain <https://www.dei.unipd.it/lodb/cri/WinByRuns> ;
+                                         rdfs:range xsd:integer ;
+                                         rdfs:comment "Number of runs by which a match has been won" ;
+                                         rdfs:label "runs"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#teamName
-:teamName rdf:type owl:DatatypeProperty ,
-                   owl:FunctionalProperty ;
-          rdfs:domain :Team ;
-          rdfs:range xsd:string ;
-          rdfs:comment "Data property that states the name of the team participating in the match"@en ;
-          rdfs:label "teamName"@en .
+###  https://www.dei.unipd.it/lodb/cri/teamName
+<https://www.dei.unipd.it/lodb/cri/teamName> rdf:type owl:DatatypeProperty ,
+                                                      owl:FunctionalProperty ;
+                                             rdfs:domain <https://www.dei.unipd.it/lodb/cri/Team> ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:comment "Data property that states the name of the team participating in the match"@en ;
+                                             rdfs:label "teamName"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#totalBallsDelivery
-:totalBallsDelivery rdf:type owl:DatatypeProperty ;
-                    rdfs:domain :Innings ;
-                    rdfs:range [ rdf:type rdfs:Datatype ;
-                                 owl:onDatatype xsd:integer ;
-                                 owl:withRestrictions ( [ xsd:minInclusive 120
-                                                        ]
-                                                        [ xsd:maxInclusive 125
-                                                        ]
-                                                      )
-                               ] ;
-                    rdfs:comment "This property represents the total number of balls played during a match. In a single T20 match total balls are 120. Considering 5 wide/no balls, its range has been set from 120 to 125 inclusive."@en ;
-                    rdfs:label "totalBallsDelivery"@en .
+###  https://www.dei.unipd.it/lodb/cri/totalBallsDelivery
+<https://www.dei.unipd.it/lodb/cri/totalBallsDelivery> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain <https://www.dei.unipd.it/lodb/cri/Innings> ;
+                                                       rdfs:range [ rdf:type rdfs:Datatype ;
+                                                                    owl:onDatatype xsd:integer ;
+                                                                    owl:withRestrictions ( [ xsd:minInclusive 120
+                                                                                           ]
+                                                                                           [ xsd:maxInclusive 125
+                                                                                           ]
+                                                                                         )
+                                                                  ] ;
+                                                       rdfs:comment "This property represents the total number of balls played during a match. In a single T20 match total balls are 120. Considering 5 wide/no balls, its range has been set from 120 to 125 inclusive."@en ;
+                                                       rdfs:label "totalBallsDelivery"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#venueName
-:venueName rdf:type owl:DatatypeProperty ,
-                    owl:FunctionalProperty ;
-           rdfs:domain :Venue ;
-           rdfs:range xsd:string ;
-           rdfs:comment "The property hasVenue represents the location where the match was played. Its a string and shows the names of cricket grounds."@en ;
-           rdfs:label "venueName"@en .
+###  https://www.dei.unipd.it/lodb/cri/venueName
+<https://www.dei.unipd.it/lodb/cri/venueName> rdf:type owl:DatatypeProperty ,
+                                                       owl:FunctionalProperty ;
+                                              rdfs:domain <https://www.dei.unipd.it/lodb/cri/Venue> ;
+                                              rdfs:range xsd:string ;
+                                              rdfs:comment "The property hasVenue represents the location where the match was played. Its a string and shows the names of cricket grounds."@en ;
+                                              rdfs:label "venueName"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#wickets
-:wickets rdf:type owl:DatatypeProperty ,
-                  owl:FunctionalProperty ;
-         rdfs:domain :WinByWickets ;
-         rdfs:range xsd:integer ;
-         rdfs:comment "Number of wickets by which a match has been won" ;
-         rdfs:label "wickets"@en .
+###  https://www.dei.unipd.it/lodb/cri/wickets
+<https://www.dei.unipd.it/lodb/cri/wickets> rdf:type owl:DatatypeProperty ,
+                                                     owl:FunctionalProperty ;
+                                            rdfs:domain <https://www.dei.unipd.it/lodb/cri/WinByWickets> ;
+                                            rdfs:range xsd:integer ;
+                                            rdfs:comment "Number of wickets by which a match has been won" ;
+                                            rdfs:label "wickets"@en .
 
 
 #################################################################
@@ -291,182 +291,182 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 
 
 ###  http://www.w3.org/2004/02/skos/core#Concept
-<http://www.w3.org/2004/02/skos/core#Concept> owl:disjointWith :Tie ,
-                                                               :Win .
+<http://www.w3.org/2004/02/skos/core#Concept> owl:disjointWith <https://www.dei.unipd.it/lodb/cri/Tie> ,
+                                                               <https://www.dei.unipd.it/lodb/cri/Win> .
 
 
-###  https://www.dei.unipd.it/lodb/cri#Innings
-:Innings rdf:type owl:Class ;
-         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasBattingTeam ;
-                           owl:someValuesFrom :Team
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :totalBallsDelivery ;
-                           owl:someValuesFrom xsd:integer
-                         ] ;
-         rdfs:comment "The class that contains Inning1 and Inning2 for each match" ;
-         rdfs:label "Innings" .
+###  https://www.dei.unipd.it/lodb/cri/Innings
+<https://www.dei.unipd.it/lodb/cri/Innings> rdf:type owl:Class ;
+                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasBattingTeam> ;
+                                                              owl:someValuesFrom <https://www.dei.unipd.it/lodb/cri/Team>
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <https://www.dei.unipd.it/lodb/cri/totalBallsDelivery> ;
+                                                              owl:someValuesFrom xsd:integer
+                                                            ] ;
+                                            rdfs:comment "The class that contains Inning1 and Inning2 for each match" ;
+                                            rdfs:label "Innings" .
 
 
-###  https://www.dei.unipd.it/lodb/cri#Match
-:Match rdf:type owl:Class ;
-       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasAwayTeam ;
-                         owl:someValuesFrom :Team
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasFirstInnings ;
-                         owl:someValuesFrom :Innings
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasHomeTeam ;
-                         owl:someValuesFrom :Team
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasOutcomeToss ;
-                         owl:someValuesFrom :Toss
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasSecondInnings ;
-                         owl:someValuesFrom :Innings
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasVenue ;
-                         owl:someValuesFrom :Venue
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :isOfficiatedBy ;
-                         owl:allValuesFrom :Umpire
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasOutcome ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass :Outcome
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :isOfficiatedBy ;
-                         owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
-                         owl:onClass :Umpire
-                       ] ;
-       owl:disjointWith :Outcome ,
-                        :Venue ,
-                        :Win ;
-       rdfs:comment "This is the class Match that holds all the details about a particular match."@en ;
-       rdfs:label "Match"@en .
+###  https://www.dei.unipd.it/lodb/cri/Match
+<https://www.dei.unipd.it/lodb/cri/Match> rdf:type owl:Class ;
+                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasAwayTeam> ;
+                                                            owl:someValuesFrom <https://www.dei.unipd.it/lodb/cri/Team>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasFirstInnings> ;
+                                                            owl:someValuesFrom <https://www.dei.unipd.it/lodb/cri/Innings>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasHomeTeam> ;
+                                                            owl:someValuesFrom <https://www.dei.unipd.it/lodb/cri/Team>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasOutcomeToss> ;
+                                                            owl:someValuesFrom <https://www.dei.unipd.it/lodb/cri/Toss>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasSecondInnings> ;
+                                                            owl:someValuesFrom <https://www.dei.unipd.it/lodb/cri/Innings>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasVenue> ;
+                                                            owl:someValuesFrom <https://www.dei.unipd.it/lodb/cri/Venue>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://www.dei.unipd.it/lodb/cri/isOfficiatedBy> ;
+                                                            owl:allValuesFrom <https://www.dei.unipd.it/lodb/cri/Umpire>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasOutcome> ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass <https://www.dei.unipd.it/lodb/cri/Outcome>
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://www.dei.unipd.it/lodb/cri/isOfficiatedBy> ;
+                                                            owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass <https://www.dei.unipd.it/lodb/cri/Umpire>
+                                                          ] ;
+                                          owl:disjointWith <https://www.dei.unipd.it/lodb/cri/Outcome> ,
+                                                           <https://www.dei.unipd.it/lodb/cri/Venue> ,
+                                                           <https://www.dei.unipd.it/lodb/cri/Win> ;
+                                          rdfs:comment "This is the class Match that holds all the details about a particular match."@en ;
+                                          rdfs:label "Match"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#Outcome
-:Outcome rdf:type owl:Class ;
-         owl:disjointWith :Team ;
-         rdfs:comment "This class represents the outcome of the matches" ;
-         rdfs:label "Outcome" .
+###  https://www.dei.unipd.it/lodb/cri/Outcome
+<https://www.dei.unipd.it/lodb/cri/Outcome> rdf:type owl:Class ;
+                                            owl:disjointWith <https://www.dei.unipd.it/lodb/cri/Team> ;
+                                            rdfs:comment "This class represents the outcome of the matches" ;
+                                            rdfs:label "Outcome" .
 
 
-###  https://www.dei.unipd.it/lodb/cri#Player
-:Player rdf:type owl:Class ;
-        owl:equivalentClass [ rdf:type owl:Restriction ;
-                              owl:onProperty :belongsToTeam ;
-                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onClass :Team
-                            ] ;
-        rdfs:subClassOf <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
-        owl:disjointWith :Umpire ;
-        rdfs:comment "This class represents all the players participating in the game" ;
-        rdfs:label "Player" .
+###  https://www.dei.unipd.it/lodb/cri/Player
+<https://www.dei.unipd.it/lodb/cri/Player> rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <https://www.dei.unipd.it/lodb/cri/belongsToTeam> ;
+                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass <https://www.dei.unipd.it/lodb/cri/Team>
+                                                               ] ;
+                                           rdfs:subClassOf <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
+                                           owl:disjointWith <https://www.dei.unipd.it/lodb/cri/Umpire> ;
+                                           rdfs:comment "This class represents all the players participating in the game" ;
+                                           rdfs:label "Player" .
 
 
-###  https://www.dei.unipd.it/lodb/cri#Team
-:Team rdf:type owl:Class ;
-      owl:equivalentClass [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasPlayer ;
-                            owl:someValuesFrom :Player
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasPlayer ;
-                            owl:qualifiedCardinality "11"^^xsd:nonNegativeInteger ;
-                            owl:onClass :Player
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :teamName ;
-                            owl:someValuesFrom xsd:string
-                          ] ;
-      owl:disjointWith :Win ;
-      rdfs:comment "This is the class that represents the 2 teams participating in the Cricket match" ;
-      rdfs:label "Team"@en .
+###  https://www.dei.unipd.it/lodb/cri/Team
+<https://www.dei.unipd.it/lodb/cri/Team> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasPlayer> ;
+                                                               owl:someValuesFrom <https://www.dei.unipd.it/lodb/cri/Player>
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasPlayer> ;
+                                                               owl:qualifiedCardinality "11"^^xsd:nonNegativeInteger ;
+                                                               owl:onClass <https://www.dei.unipd.it/lodb/cri/Player>
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://www.dei.unipd.it/lodb/cri/teamName> ;
+                                                               owl:someValuesFrom xsd:string
+                                                             ] ;
+                                         owl:disjointWith <https://www.dei.unipd.it/lodb/cri/Win> ;
+                                         rdfs:comment "This is the class that represents the 2 teams participating in the Cricket match" ;
+                                         rdfs:label "Team"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#Tie
-:Tie rdf:type owl:Class ;
-     rdfs:subClassOf :Outcome ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :hasTieBreakWinner ;
-                       owl:someValuesFrom :Team
-                     ] ;
-     owl:disjointWith :Win ;
-     rdfs:comment "Class representing a Tie" .
+###  https://www.dei.unipd.it/lodb/cri/Tie
+<https://www.dei.unipd.it/lodb/cri/Tie> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://www.dei.unipd.it/lodb/cri/Outcome> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasTieBreakWinner> ;
+                                                          owl:someValuesFrom <https://www.dei.unipd.it/lodb/cri/Team>
+                                                        ] ;
+                                        owl:disjointWith <https://www.dei.unipd.it/lodb/cri/Win> ;
+                                        rdfs:comment "Class representing a Tie" .
 
 
-###  https://www.dei.unipd.it/lodb/cri#Toss
-:Toss rdf:type owl:Class ;
-      owl:equivalentClass [ rdf:type owl:Restriction ;
-                            owl:onProperty <https://www.dei.unipd.it/lodb/cri#/hasWinner> ;
-                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass :Team
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasDecision ;
-                            owl:cardinality "1"^^xsd:nonNegativeInteger
-                          ] ;
-      rdfs:comment """Toss identifies the team that has won in the toss and also what the winning team chooses to deliver. 
+###  https://www.dei.unipd.it/lodb/cri/Toss
+<https://www.dei.unipd.it/lodb/cri/Toss> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasWinner> ;
+                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                               owl:onClass <https://www.dei.unipd.it/lodb/cri/Team>
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://www.dei.unipd.it/lodb/cri/hasDecision> ;
+                                                               owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                             ] ;
+                                         rdfs:comment """Toss identifies the team that has won in the toss and also what the winning team chooses to deliver. 
 For example, for the match India vs Australia, India wins the toss, and chooses to Field. 
 Toss holds - India, Field"""@en ;
-      rdfs:label "Toss"@en .
+                                         rdfs:label "Toss"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#Umpire
-:Umpire rdf:type owl:Class ;
-        owl:equivalentClass [ rdf:type owl:Restriction ;
-                              owl:onProperty :officiatedInMatch ;
-                              owl:someValuesFrom :Match
-                            ] ;
-        rdfs:subClassOf <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
-        rdfs:comment "This class represents all the umpires in the game" ;
-        rdfs:label "Umpire"@en .
+###  https://www.dei.unipd.it/lodb/cri/Umpire
+<https://www.dei.unipd.it/lodb/cri/Umpire> rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <https://www.dei.unipd.it/lodb/cri/officiatedInMatch> ;
+                                                                 owl:someValuesFrom <https://www.dei.unipd.it/lodb/cri/Match>
+                                                               ] ;
+                                           rdfs:subClassOf <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
+                                           rdfs:comment "This class represents all the umpires in the game" ;
+                                           rdfs:label "Umpire"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#Venue
-:Venue rdf:type owl:Class ;
-       rdfs:comment "Consists of the Venue and City where the match was held." ;
-       rdfs:label "Venue" .
+###  https://www.dei.unipd.it/lodb/cri/Venue
+<https://www.dei.unipd.it/lodb/cri/Venue> rdf:type owl:Class ;
+                                          rdfs:comment "Consists of the Venue and City where the match was held." ;
+                                          rdfs:label "Venue" .
 
 
-###  https://www.dei.unipd.it/lodb/cri#Win
-:Win rdf:type owl:Class ;
-     owl:equivalentClass [ rdf:type owl:Class ;
-                           owl:unionOf ( :WinByRuns
-                                         :WinByWickets
-                                       )
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :wonBy ;
-                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Team
-                         ] ;
-     rdfs:subClassOf :Outcome ;
-     rdfs:comment "This class describes the wins (if that's the outcome)" .
+###  https://www.dei.unipd.it/lodb/cri/Win
+<https://www.dei.unipd.it/lodb/cri/Win> rdf:type owl:Class ;
+                                        owl:equivalentClass [ rdf:type owl:Class ;
+                                                              owl:unionOf ( <https://www.dei.unipd.it/lodb/cri/WinByRuns>
+                                                                            <https://www.dei.unipd.it/lodb/cri/WinByWickets>
+                                                                          )
+                                                            ] ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <https://www.dei.unipd.it/lodb/cri/wonBy> ;
+                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onClass <https://www.dei.unipd.it/lodb/cri/Team>
+                                                            ] ;
+                                        rdfs:subClassOf <https://www.dei.unipd.it/lodb/cri/Outcome> ;
+                                        rdfs:comment "This class describes the wins (if that's the outcome)" .
 
 
-###  https://www.dei.unipd.it/lodb/cri#WinByRuns
-:WinByRuns rdf:type owl:Class ;
-           rdfs:subClassOf :Win ;
-           owl:disjointWith :WinByWickets ;
-           rdfs:comment "Class representing the Win by certain number of runs" .
+###  https://www.dei.unipd.it/lodb/cri/WinByRuns
+<https://www.dei.unipd.it/lodb/cri/WinByRuns> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://www.dei.unipd.it/lodb/cri/Win> ;
+                                              owl:disjointWith <https://www.dei.unipd.it/lodb/cri/WinByWickets> ;
+                                              rdfs:comment "Class representing the Win by certain number of runs" .
 
 
-###  https://www.dei.unipd.it/lodb/cri#WinByWickets
-:WinByWickets rdf:type owl:Class ;
-              rdfs:subClassOf :Win .
+###  https://www.dei.unipd.it/lodb/cri/WinByWickets
+<https://www.dei.unipd.it/lodb/cri/WinByWickets> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://www.dei.unipd.it/lodb/cri/Win> .
 
 
 #################################################################
@@ -475,364 +475,364 @@ Toss holds - India, Field"""@en ;
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Australia
 :Australia rdf:type owl:NamedIndividual ,
-                    :Team ;
+                    <https://www.dei.unipd.it/lodb/cri/Team> ;
            owl:differentFrom :England ,
                              :India ;
-           :teamName "Australia" ;
+           <https://www.dei.unipd.it/lodb/cri/teamName> "Australia" ;
            rdfs:comment "Team" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/BF_Bowden
 :BF_Bowden rdf:type owl:NamedIndividual ,
-                    :Umpire ;
+                    <https://www.dei.unipd.it/lodb/cri/Umpire> ;
            owl:differentFrom :Kim_Cotton ;
            rdfs:comment "Umpire"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/B_Biza
 :B_Biza rdf:type owl:NamedIndividual ,
-                 :Player ;
+                 <https://www.dei.unipd.it/lodb/cri/Player> ;
         owl:differentFrom :K_Ndlovu ;
-        :belongsToTeam :Zimbabwe ;
+        <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :Zimbabwe ;
         rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/B_Cooper
 :B_Cooper rdf:type owl:NamedIndividual ,
-                   :Player ;
+                   <https://www.dei.unipd.it/lodb/cri/Player> ;
           owl:differentFrom :SS_Connell ;
-          :belongsToTeam :West_indies ;
+          <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :West_indies ;
           rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/D_Odhiambo
 :D_Odhiambo rdf:type owl:NamedIndividual ,
-                     :Umpire ;
+                     <https://www.dei.unipd.it/lodb/cri/Umpire> ;
             rdfs:comment "Umpire"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/England
 :England rdf:type owl:NamedIndividual ,
-                  :Team ;
+                  <https://www.dei.unipd.it/lodb/cri/Team> ;
          owl:differentFrom :India ;
-         :teamName "England" ;
+         <https://www.dei.unipd.it/lodb/cri/teamName> "England" ;
          rdfs:comment "Team" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/India
 :India rdf:type owl:NamedIndividual ,
-                :Team ;
+                <https://www.dei.unipd.it/lodb/cri/Team> ;
        owl:differentFrom :Namibia ,
                          :Zimbabwe ;
-       :teamName "India" ;
+       <https://www.dei.unipd.it/lodb/cri/teamName> "India" ;
        rdfs:comment "Team"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inn1_m1
 :Inn1_m1 rdf:type owl:NamedIndividual ;
          owl:differentFrom :Inn2_m1 ;
-         :hasBattingTeam :Namibia ;
+         <https://www.dei.unipd.it/lodb/cri/hasBattingTeam> :Namibia ;
          rdfs:comment "The 1st Inning of Match 1"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inn1_m3
 :Inn1_m3 rdf:type owl:NamedIndividual ;
          owl:differentFrom :Inn2_m3 ;
-         :hasBattingTeam :New_Zealand ;
-         :totalBallsDelivery 122 ;
+         <https://www.dei.unipd.it/lodb/cri/hasBattingTeam> :New_Zealand ;
+         <https://www.dei.unipd.it/lodb/cri/totalBallsDelivery> 122 ;
          rdfs:comment "The 1st inning of match 3" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inn2_m1
 :Inn2_m1 rdf:type owl:NamedIndividual ;
-         :hasBattingTeam :Zimbabwe ;
+         <https://www.dei.unipd.it/lodb/cri/hasBattingTeam> :Zimbabwe ;
          rdfs:comment "Inning2 for Match1" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Inn2_m3
 :Inn2_m3 rdf:type owl:NamedIndividual ;
-         :hasBattingTeam :West_indies ;
-         :totalBallsDelivery 124 ;
+         <https://www.dei.unipd.it/lodb/cri/hasBattingTeam> :West_indies ;
+         <https://www.dei.unipd.it/lodb/cri/totalBallsDelivery> 124 ;
          rdfs:comment "Inning 2 for match 3" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Jonathan
 :Jonathan rdf:type owl:NamedIndividual ,
-                   :Player ;
-          :belongsToTeam :Australia ;
+                   <https://www.dei.unipd.it/lodb/cri/Player> ;
+          <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :Australia ;
           rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/K_Ndlovu
 :K_Ndlovu rdf:type owl:NamedIndividual ,
-                   :Player ;
-          :belongsToTeam :Zimbabwe ;
+                   <https://www.dei.unipd.it/lodb/cri/Player> ;
+          <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :Zimbabwe ;
           rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Kim_Cotton
 :Kim_Cotton rdf:type owl:NamedIndividual ,
-                     :Umpire ;
+                     <https://www.dei.unipd.it/lodb/cri/Umpire> ;
             <http://xmlns.com/foaf/0.1/givenName> "Kim Cotton" ;
             rdfs:comment "Umpire"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/ML_Green
 :ML_Green rdf:type owl:NamedIndividual ,
-                   :Player ;
+                   <https://www.dei.unipd.it/lodb/cri/Player> ;
           owl:differentFrom :NC_Dodd ;
-          :belongsToTeam :New_Zealand ;
-          :isManofMatch "true"^^xsd:boolean ;
+          <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :New_Zealand ;
+          <https://www.dei.unipd.it/lodb/cri/isManofMatch> "true"^^xsd:boolean ;
           rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/M_Short
 :M_Short rdf:type owl:NamedIndividual ,
-                  :Umpire ;
+                  <https://www.dei.unipd.it/lodb/cri/Umpire> ;
          owl:differentFrom :S_Loftie_Eaton ;
          rdfs:comment "Umpire"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match1
 :Match1 rdf:type owl:NamedIndividual ,
-                 :Match ;
+                 <https://www.dei.unipd.it/lodb/cri/Match> ;
         owl:differentFrom :Match2 ,
                           :Match3 ;
-        :hasOutcomeToss :Toss1 ;
-        :isOfficiatedBy :D_Odhiambo ,
-                        :M_Short ;
-        :hasMatchID 1 ;
+        <https://www.dei.unipd.it/lodb/cri/hasOutcomeToss> :Toss1 ;
+        <https://www.dei.unipd.it/lodb/cri/isOfficiatedBy> :D_Odhiambo ,
+                                                           :M_Short ;
+        <https://www.dei.unipd.it/lodb/cri/hasMatchID> 1 ;
         rdfs:comment "Match 1"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match2
 :Match2 rdf:type owl:NamedIndividual ,
-                 :Match ;
+                 <https://www.dei.unipd.it/lodb/cri/Match> ;
         owl:differentFrom :Match3 ;
-        :hasOutcomeToss :Toss2 ;
-        :isOfficiatedBy :M_Short ,
-                        :S_Loftie_Eaton ;
-        :hasMatchID 2 ;
+        <https://www.dei.unipd.it/lodb/cri/hasOutcomeToss> :Toss2 ;
+        <https://www.dei.unipd.it/lodb/cri/isOfficiatedBy> :M_Short ,
+                                                           :S_Loftie_Eaton ;
+        <https://www.dei.unipd.it/lodb/cri/hasMatchID> 2 ;
         rdfs:comment "Match 2"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match3
 :Match3 rdf:type owl:NamedIndividual ,
-                 :Match ;
-        :hasAwayTeam :West_indies ;
-        :hasFirstInnings :Inn1_m3 ;
-        :hasHomeTeam :New_Zealand ;
-        :hasOutcomeToss :Toss3 ;
-        :hasSecondInnings :Inn2_m3 ;
-        :hasVenue :venueTest ;
-        :isOfficiatedBy :BF_Bowden ,
-                        :Kim_Cotton ;
-        :hasDates "2001-06-25T09:00:00"^^xsd:dateTime ;
-        :hasMatchID 3 ;
+                 <https://www.dei.unipd.it/lodb/cri/Match> ;
+        <https://www.dei.unipd.it/lodb/cri/hasAwayTeam> :West_indies ;
+        <https://www.dei.unipd.it/lodb/cri/hasFirstInnings> :Inn1_m3 ;
+        <https://www.dei.unipd.it/lodb/cri/hasHomeTeam> :New_Zealand ;
+        <https://www.dei.unipd.it/lodb/cri/hasOutcomeToss> :Toss3 ;
+        <https://www.dei.unipd.it/lodb/cri/hasSecondInnings> :Inn2_m3 ;
+        <https://www.dei.unipd.it/lodb/cri/hasVenue> :venueTest ;
+        <https://www.dei.unipd.it/lodb/cri/isOfficiatedBy> :BF_Bowden ,
+                                                           :Kim_Cotton ;
+        <https://www.dei.unipd.it/lodb/cri/hasDates> "2001-06-25T09:00:00"^^xsd:dateTime ;
+        <https://www.dei.unipd.it/lodb/cri/hasMatchID> 3 ;
         rdfs:comment "Match 3"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match_testfinal
 :Match_testfinal rdf:type owl:NamedIndividual ,
-                          :Match ;
-                 :hasAwayTeam :Australia ;
-                 :hasHomeTeam :England ;
-                 :hasOutcome :WinByWickets ;
-                 :hasOutcomeToss :toss_testmatch ;
-                 :hasVenue :venue_testmatch ;
-                 :isOfficiatedBy :ump1_testmatch ,
-                                 :ump2_testmatch ;
-                 :hasDates "2009-06-19T12:00:00"^^xsd:dateTime ;
-                 :hasMatchID 10 ;
+                          <https://www.dei.unipd.it/lodb/cri/Match> ;
+                 <https://www.dei.unipd.it/lodb/cri/hasAwayTeam> :Australia ;
+                 <https://www.dei.unipd.it/lodb/cri/hasHomeTeam> :England ;
+                 <https://www.dei.unipd.it/lodb/cri/hasOutcome> <https://www.dei.unipd.it/lodb/cri/WinByWickets> ;
+                 <https://www.dei.unipd.it/lodb/cri/hasOutcomeToss> :toss_testmatch ;
+                 <https://www.dei.unipd.it/lodb/cri/hasVenue> :venue_testmatch ;
+                 <https://www.dei.unipd.it/lodb/cri/isOfficiatedBy> :ump1_testmatch ,
+                                                                    :ump2_testmatch ;
+                 <https://www.dei.unipd.it/lodb/cri/hasDates> "2009-06-19T12:00:00"^^xsd:dateTime ;
+                 <https://www.dei.unipd.it/lodb/cri/hasMatchID> 10 ;
                  rdfs:comment "Match final testing" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/NC_Dodd
 :NC_Dodd rdf:type owl:NamedIndividual ,
-                  :Player ;
-         :belongsToTeam :New_Zealand ;
+                  <https://www.dei.unipd.it/lodb/cri/Player> ;
+         <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :New_Zealand ;
          <http://xmlns.com/foaf/0.1/givenName> "NC_Dodd" ;
-         :isManofMatch "true"^^xsd:boolean ;
+         <https://www.dei.unipd.it/lodb/cri/isManofMatch> "true"^^xsd:boolean ;
          rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Namibia
 :Namibia rdf:type owl:NamedIndividual ,
-                  :Team ;
+                  <https://www.dei.unipd.it/lodb/cri/Team> ;
          owl:differentFrom :Zimbabwe ;
          rdfs:comment "Team"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/New_Zealand
 :New_Zealand rdf:type owl:NamedIndividual ,
-                      :Team ;
+                      <https://www.dei.unipd.it/lodb/cri/Team> ;
              owl:differentFrom :West_indies ;
-             :teamName "New Zealand" ;
+             <https://www.dei.unipd.it/lodb/cri/teamName> "New Zealand" ;
              rdfs:comment "Team"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/NoResult
 :NoResult rdf:type owl:NamedIndividual ,
                    <http://www.w3.org/2004/02/skos/core#Concept> ,
-                   :Outcome ;
+                   <https://www.dei.unipd.it/lodb/cri/Outcome> ;
           rdfs:comment "This a skos:Concept representing a no result as outcome of the match" .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/SA_Wittman
 :SA_Wittman rdf:type owl:NamedIndividual ;
             owl:differentFrom :Yasmeen_Khan ;
-            :belongsToTeam :Namibia ;
+            <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :Namibia ;
             rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/SS_Connell
 :SS_Connell rdf:type owl:NamedIndividual ,
-                     :Player ;
-            :belongsToTeam :West_indies ;
+                     <https://www.dei.unipd.it/lodb/cri/Player> ;
+            <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :West_indies ;
             rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/S_Loftie_Eaton
 :S_Loftie_Eaton rdf:type owl:NamedIndividual ,
-                         :Umpire ;
+                         <https://www.dei.unipd.it/lodb/cri/Umpire> ;
                 rdfs:comment "Umpire"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/TieTest
 :TieTest rdf:type owl:NamedIndividual ,
-                  :Tie ;
-         :hasTieBreakWinner :India .
+                  <https://www.dei.unipd.it/lodb/cri/Tie> ;
+         <https://www.dei.unipd.it/lodb/cri/hasTieBreakWinner> :India .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss1
 :Toss1 rdf:type owl:NamedIndividual ,
-                :Toss ;
+                <https://www.dei.unipd.it/lodb/cri/Toss> ;
        owl:differentFrom :Toss2 ,
                          :Toss3 ,
                          :toss_testmatch ;
-       <https://www.dei.unipd.it/lodb/cri#/hasWinner> :India ;
-       :hasDecision "bat" ;
+       <https://www.dei.unipd.it/lodb/cri/hasWinner> :India ;
+       <https://www.dei.unipd.it/lodb/cri/hasDecision> "bat" ;
        rdfs:comment "Toss"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss2
 :Toss2 rdf:type owl:NamedIndividual ,
-                :Toss ;
+                <https://www.dei.unipd.it/lodb/cri/Toss> ;
        owl:differentFrom :Toss3 ;
-       <https://www.dei.unipd.it/lodb/cri#/hasWinner> :Namibia ;
-       :hasDecision "field" ;
+       <https://www.dei.unipd.it/lodb/cri/hasWinner> :Namibia ;
+       <https://www.dei.unipd.it/lodb/cri/hasDecision> "field" ;
        rdfs:comment "Toss"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Toss3
 :Toss3 rdf:type owl:NamedIndividual ,
-                :Toss ;
-       <https://www.dei.unipd.it/lodb/cri#/hasWinner> :West_indies ;
-       :hasDecision "field" ;
+                <https://www.dei.unipd.it/lodb/cri/Toss> ;
+       <https://www.dei.unipd.it/lodb/cri/hasWinner> :West_indies ;
+       <https://www.dei.unipd.it/lodb/cri/hasDecision> "field" ;
        rdfs:comment "Toss"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/West_indies
 :West_indies rdf:type owl:NamedIndividual ;
-             :teamName "West Indies" ;
+             <https://www.dei.unipd.it/lodb/cri/teamName> "West Indies" ;
              rdfs:comment "Team"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Yasmeen_Khan
 :Yasmeen_Khan rdf:type owl:NamedIndividual ,
-                       :Player ;
-              :belongsToTeam :Namibia ;
+                       <https://www.dei.unipd.it/lodb/cri/Player> ;
+              <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :Namibia ;
               rdfs:comment "Player"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Zimbabwe
 :Zimbabwe rdf:type owl:NamedIndividual ,
-                   :Team ;
+                   <https://www.dei.unipd.it/lodb/cri/Team> ;
           rdfs:comment "Team"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/inn1_testmatch
 :inn1_testmatch rdf:type owl:NamedIndividual ,
-                         :Innings ;
+                         <https://www.dei.unipd.it/lodb/cri/Innings> ;
                 owl:differentFrom :inn2_testmatch ;
-                :hasBattingTeam :Australia ;
-                :isFirstInningsOf :Match_testfinal ;
-                :totalBallsDelivery 122 ;
+                <https://www.dei.unipd.it/lodb/cri/hasBattingTeam> :Australia ;
+                <https://www.dei.unipd.it/lodb/cri/isFirstInningsOf> :Match_testfinal ;
+                <https://www.dei.unipd.it/lodb/cri/totalBallsDelivery> 122 ;
                 rdfs:comment "The first inning of the individual Match_testfinal"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/inn2_testmatch
 :inn2_testmatch rdf:type owl:NamedIndividual ,
-                         :Innings ;
-                :hasBattingTeam :England ;
-                :isSecondInningsOf :Match_testfinal ;
-                :totalBallsDelivery 120 ;
+                         <https://www.dei.unipd.it/lodb/cri/Innings> ;
+                <https://www.dei.unipd.it/lodb/cri/hasBattingTeam> :England ;
+                <https://www.dei.unipd.it/lodb/cri/isSecondInningsOf> :Match_testfinal ;
+                <https://www.dei.unipd.it/lodb/cri/totalBallsDelivery> 120 ;
                 rdfs:comment "Inning 2 for Match_testmatch"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/outcomeTest
 :outcomeTest rdf:type owl:NamedIndividual ,
-                      :Outcome ;
-             :runs 12 ;
+                      <https://www.dei.unipd.it/lodb/cri/Outcome> ;
+             <https://www.dei.unipd.it/lodb/cri/runs> 12 ;
              rdfs:comment "Test Outcome to check if the Outcome class is working or not"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/pl1_tm_aus
 :pl1_tm_aus rdf:type owl:NamedIndividual ,
-                     :Player ;
+                     <https://www.dei.unipd.it/lodb/cri/Player> ;
             owl:differentFrom :pl2_tm_aus ;
-            :belongsToTeam :Australia ;
+            <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :Australia ;
             <http://xmlns.com/foaf/0.1/givenName> "EA Perry" ;
-            :isManofMatch "false"^^xsd:boolean ;
+            <https://www.dei.unipd.it/lodb/cri/isManofMatch> "false"^^xsd:boolean ;
             rdfs:comment "Player 1 of Australia for Match_testfinal"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/pl1_tm_eng
 :pl1_tm_eng rdf:type owl:NamedIndividual ,
-                     :Player ;
+                     <https://www.dei.unipd.it/lodb/cri/Player> ;
             owl:differentFrom :pl2_tm_eng ;
-            :belongsToTeam :England ;
+            <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :England ;
             <http://xmlns.com/foaf/0.1/givenName> "JL Gunn" ;
-            :isManofMatch "false"^^xsd:boolean ;
+            <https://www.dei.unipd.it/lodb/cri/isManofMatch> "false"^^xsd:boolean ;
             rdfs:comment "Player 1 of England for Match_testfinal"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/pl2_tm_aus
 :pl2_tm_aus rdf:type owl:NamedIndividual ,
-                     :Player ;
-            :belongsToTeam :Australia ;
+                     <https://www.dei.unipd.it/lodb/cri/Player> ;
+            <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :Australia ;
             <http://xmlns.com/foaf/0.1/givenName> "KA Rolton" ;
-            :isManofMatch "true"^^xsd:boolean ;
+            <https://www.dei.unipd.it/lodb/cri/isManofMatch> "true"^^xsd:boolean ;
             rdfs:comment "Player 2 of Australia for Match_testfinal"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/pl2_tm_eng
 :pl2_tm_eng rdf:type owl:NamedIndividual ,
-                     :Player ;
-            :belongsToTeam :England ;
+                     <https://www.dei.unipd.it/lodb/cri/Player> ;
+            <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :England ;
             <http://xmlns.com/foaf/0.1/givenName> "NJ Shaw" ;
-            :isManofMatch "true"^^xsd:boolean ;
+            <https://www.dei.unipd.it/lodb/cri/isManofMatch> "true"^^xsd:boolean ;
             rdfs:comment "Player 2 of England for Match_testfinal"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/testMatch
 :testMatch rdf:type owl:NamedIndividual ,
-                    :Match ;
-           :hasOutcome :outcomeTest ;
+                    <https://www.dei.unipd.it/lodb/cri/Match> ;
+           <https://www.dei.unipd.it/lodb/cri/hasOutcome> :outcomeTest ;
            rdfs:comment "A simple test match to check if the outcome is working"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/toss_testmatch
 :toss_testmatch rdf:type owl:NamedIndividual ,
-                         :Toss ;
-                <https://www.dei.unipd.it/lodb/cri#/hasWinner> :England ;
-                :hasDecision "field" ;
+                         <https://www.dei.unipd.it/lodb/cri/Toss> ;
+                <https://www.dei.unipd.it/lodb/cri/hasWinner> :England ;
+                <https://www.dei.unipd.it/lodb/cri/hasDecision> "field" ;
                 rdfs:comment "Toss for the individual testmatch"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/ump1_testmatch
 :ump1_testmatch rdf:type owl:NamedIndividual ,
-                         :Umpire ;
+                         <https://www.dei.unipd.it/lodb/cri/Umpire> ;
                 owl:differentFrom :ump2_testmatch ;
                 <http://xmlns.com/foaf/0.1/givenName> "BR Doctrove" ;
                 rdfs:comment "Umpire"@en .
@@ -840,38 +840,38 @@ Toss holds - India, Field"""@en ;
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/ump2_testmatch
 :ump2_testmatch rdf:type owl:NamedIndividual ,
-                         :Umpire ;
+                         <https://www.dei.unipd.it/lodb/cri/Umpire> ;
                 <http://xmlns.com/foaf/0.1/givenName> "AL Hill" ;
                 rdfs:comment "Umpire"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/venueTest
 :venueTest rdf:type owl:NamedIndividual ,
-                    :Venue ;
-           :neutralVenue "false"^^xsd:boolean ;
-           :venueName "San siro, Milan" ;
+                    <https://www.dei.unipd.it/lodb/cri/Venue> ;
+           <https://www.dei.unipd.it/lodb/cri/neutralVenue> "false"^^xsd:boolean ;
+           <https://www.dei.unipd.it/lodb/cri/venueName> "San siro, Milan" ;
            rdfs:comment "Venue for testing if the Venue class works"@en .
 
 
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/venue_testmatch
 :venue_testmatch rdf:type owl:NamedIndividual ,
-                          :Venue ;
-                 :neutralVenue "false"^^xsd:boolean ;
-                 :venueName "London" ;
+                          <https://www.dei.unipd.it/lodb/cri/Venue> ;
+                 <https://www.dei.unipd.it/lodb/cri/neutralVenue> "false"^^xsd:boolean ;
+                 <https://www.dei.unipd.it/lodb/cri/venueName> "London" ;
                  rdfs:comment "Venue"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri#WinByWickets
-:WinByWickets rdf:type owl:NamedIndividual ,
-                       :Win ;
-              :wickets 3 .
+###  https://www.dei.unipd.it/lodb/cri/WinByWickets
+<https://www.dei.unipd.it/lodb/cri/WinByWickets> rdf:type owl:NamedIndividual ,
+                                                          <https://www.dei.unipd.it/lodb/cri/Win> ;
+                                                 <https://www.dei.unipd.it/lodb/cri/wickets> 3 .
 
 
 #################################################################
 #    Annotations
 #################################################################
 
-:WinByWickets rdfs:comment "Class representing the Win by certain number of wickets" .
+<https://www.dei.unipd.it/lodb/cri/WinByWickets> rdfs:comment "Class representing the Win by certain number of wickets" .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
