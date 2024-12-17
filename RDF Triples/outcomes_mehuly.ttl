@@ -1,0 +1,168 @@
+@prefix cri: <https://www.dei.unipd.it/lodb/cri/> .
+@prefix ns1: <https://www.dei.unipd.it/lodb/cri/http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cri:playerAJBlackwell a cri:Player ;
+    cri:belongsToTeam cri:teamAustralia ;
+    ns1:givenName "AJ Blackwell"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerBLMorgan a cri:Player ;
+    cri:belongsToTeam cri:teamEngland ;
+    ns1:givenName "BL Morgan"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerCMEdwards a cri:Player ;
+    cri:belongsToTeam cri:teamEngland ;
+    ns1:givenName "CM Edwards"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerEAOsborne a cri:Player ;
+    cri:belongsToTeam cri:teamAustralia ;
+    ns1:givenName "EA Osborne"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerEJCLRCRainfordBrent a cri:Player ;
+    cri:belongsToTeam cri:teamEngland ;
+    ns1:givenName "EJCLRC Rainford-Brent"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerHLColvin a cri:Player ;
+    cri:belongsToTeam cri:teamEngland ;
+    ns1:givenName "HL Colvin"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerITGuha a cri:Player ;
+    cri:belongsToTeam cri:teamEngland ;
+    ns1:givenName "IT Guha"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerJECameron a cri:Player ;
+    cri:belongsToTeam cri:teamAustralia ;
+    ns1:givenName "JE Cameron"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerJLGunn a cri:Player ;
+    cri:belongsToTeam cri:teamEngland ;
+    ns1:givenName "JL Gunn"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerJMFields a cri:Player ;
+    cri:belongsToTeam cri:teamAustralia ;
+    ns1:givenName "JM Fields"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerKEPike a cri:Player ;
+    cri:belongsToTeam cri:teamAustralia ;
+    ns1:givenName "KE Pike"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerKLRolton a cri:Player ;
+    cri:belongsToTeam cri:teamAustralia ;
+    ns1:givenName "KL Rolton"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerLAMarsh a cri:Player ;
+    cri:belongsToTeam cri:teamEngland ;
+    ns1:givenName "LA Marsh"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerLJPoulton a cri:Player ;
+    cri:belongsToTeam cri:teamAustralia ;
+    ns1:givenName "LJ Poulton"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerLKEbsary a cri:Player ;
+    cri:belongsToTeam cri:teamAustralia ;
+    ns1:givenName "LK Ebsary"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerLSGreenway a cri:Player ;
+    cri:belongsToTeam cri:teamEngland ;
+    ns1:givenName "LS Greenway"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerNJShaw a cri:Player ;
+    cri:belongsToTeam cri:teamEngland ;
+    ns1:givenName "NJ Shaw"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerRMFarrell a cri:Player ;
+    cri:belongsToTeam cri:teamAustralia ;
+    ns1:givenName "RM Farrell"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerSCTaylor a cri:Player ;
+    cri:belongsToTeam cri:teamEngland ;
+    ns1:givenName "SC Taylor"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerSJAndrews a cri:Player ;
+    cri:belongsToTeam cri:teamAustralia ;
+    ns1:givenName "SJ Andrews"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerSJTaylor a cri:Player ;
+    cri:belongsToTeam cri:teamEngland ;
+    ns1:givenName "SJ Taylor"^^xsd:string ;
+    cri:isManofMatch false .
+
+cri:playerSNitschke a cri:Player ;
+    cri:belongsToTeam cri:teamAustralia ;
+    ns1:givenName "S Nitschke"^^xsd:string ;
+    cri:isManofMatch true .
+
+cri:toss391794 a cri:Toss ;
+    cri:hasDecision "bat"^^xsd:string ;
+    cri:hasWinner cri:teamAustralia .
+
+cri:umpPWilley a cri:Umpire ;
+    ns1:givenName "P Willey"^^xsd:string ;
+    cri:officiatedInMatch cri:match391794 .
+
+cri:umpSAGarratt a cri:Umpire ;
+    ns1:givenName "SA Garratt"^^xsd:string ;
+    cri:officiatedInMatch cri:match391794 .
+
+cri:venCountyGround a cri:Venue ;
+    cri:neutralVenue false ;
+    cri:venueName "County Ground, Derby"^^xsd:string .
+
+cri:match391794 a cri:Match ;
+    cri:hasAwayTeam cri:teamAustralia ;
+    cri:hasDates "2009-06-25T00:00:00"^^xsd:dateTime ;
+    cri:hasHomeTeam cri:teamEngland ;
+    cri:hasMatchID "391794"^^xsd:int ;
+    cri:hasOutcomeToss cri:toss391794 ;
+    cri:hasVenue cri:venCountyGround ;
+    cri:isOfficiatedBy cri:umpPWilley,
+        cri:umpSAGarratt .
+
+cri:teamEngland a cri:Team ;
+    cri:hasPlayer cri:playerBLMorgan,
+        cri:playerCMEdwards,
+        cri:playerEJCLRCRainfordBrent,
+        cri:playerHLColvin,
+        cri:playerITGuha,
+        cri:playerJLGunn,
+        cri:playerLAMarsh,
+        cri:playerLSGreenway,
+        cri:playerNJShaw,
+        cri:playerSCTaylor,
+        cri:playerSJTaylor ;
+    cri:teamName "England"^^xsd:string .
+
+cri:teamAustralia a cri:Team ;
+    cri:hasPlayer cri:playerAJBlackwell,
+        cri:playerEAOsborne,
+        cri:playerJECameron,
+        cri:playerJMFields,
+        cri:playerKEPike,
+        cri:playerKLRolton,
+        cri:playerLJPoulton,
+        cri:playerLKEbsary,
+        cri:playerRMFarrell,
+        cri:playerSJAndrews,
+        cri:playerSNitschke ;
+    cri:teamName "Australia"^^xsd:string .
+
