@@ -17,6 +17,18 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 #    Object Properties
 #################################################################
 
+###  https://www.dei.unipd.it/lodb/cri#appearedInMatch
+:appearedInMatch rdf:type owl:ObjectProperty ;
+                 rdfs:domain <https://www.dei.unipd.it/lodb/cri/Player> ;
+                 rdfs:range <https://www.dei.unipd.it/lodb/cri/Match> .
+
+
+###  https://www.dei.unipd.it/lodb/cri#hasPlayerOfMatch
+:hasPlayerOfMatch rdf:type owl:ObjectProperty ;
+                  rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
+                  rdfs:range <https://www.dei.unipd.it/lodb/cri/Player> .
+
+
 ###  https://www.dei.unipd.it/lodb/cri/belongsToTeam
 <https://www.dei.unipd.it/lodb/cri/belongsToTeam> rdf:type owl:ObjectProperty ;
                                                   owl:inverseOf <https://www.dei.unipd.it/lodb/cri/hasPlayer> ;
@@ -213,19 +225,10 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                                                rdfs:label "hasMatchID"@en .
 
 
-###  https://www.dei.unipd.it/lodb/cri/isManofMatch
-<https://www.dei.unipd.it/lodb/cri/isManofMatch> rdf:type owl:DatatypeProperty ,
-                                                          owl:FunctionalProperty ;
-                                                 rdfs:domain <https://www.dei.unipd.it/lodb/cri/Player> ;
-                                                 rdfs:range xsd:boolean ;
-                                                 rdfs:comment "This property represents player who got man of the match title. It will show the name of player (if any) got this title in a particular match."@en ;
-                                                 rdfs:label "isManofMatch"@en .
-
-
 ###  https://www.dei.unipd.it/lodb/cri/neutralVenue
 <https://www.dei.unipd.it/lodb/cri/neutralVenue> rdf:type owl:DatatypeProperty ,
                                                           owl:FunctionalProperty ;
-                                                 rdfs:domain <https://www.dei.unipd.it/lodb/cri/Venue> ;
+                                                 rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
                                                  rdfs:range xsd:boolean ;
                                                  rdfs:comment "States if a venue belongs to the Home Team or is neutral" ;
                                                  rdfs:label "neutralVenue"@en .
@@ -613,7 +616,6 @@ Toss holds - India, Field"""@en ;
                    <https://www.dei.unipd.it/lodb/cri/Player> ;
           owl:differentFrom :NC_Dodd ;
           <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :New_Zealand ;
-          <https://www.dei.unipd.it/lodb/cri/isManofMatch> "true"^^xsd:boolean ;
           rdfs:comment "Player"@en .
 
 
@@ -650,6 +652,7 @@ Toss holds - India, Field"""@en ;
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/Match3
 :Match3 rdf:type owl:NamedIndividual ,
                  <https://www.dei.unipd.it/lodb/cri/Match> ;
+        :hasPlayerOfMatch :pl1_tm_eng ;
         <https://www.dei.unipd.it/lodb/cri/hasAwayTeam> :West_indies ;
         <https://www.dei.unipd.it/lodb/cri/hasFirstInnings> :Inn1_m3 ;
         <https://www.dei.unipd.it/lodb/cri/hasHomeTeam> :New_Zealand ;
@@ -682,7 +685,6 @@ Toss holds - India, Field"""@en ;
                   <https://www.dei.unipd.it/lodb/cri/Player> ;
          <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :New_Zealand ;
          <http://xmlns.com/foaf/0.1/givenName> "NC_Dodd" ;
-         <https://www.dei.unipd.it/lodb/cri/isManofMatch> "true"^^xsd:boolean ;
          rdfs:comment "Player"@en .
 
 
@@ -811,9 +813,9 @@ Toss holds - India, Field"""@en ;
 :pl1_tm_aus rdf:type owl:NamedIndividual ,
                      <https://www.dei.unipd.it/lodb/cri/Player> ;
             owl:differentFrom :pl2_tm_aus ;
+            :appearedInMatch :Match3 ;
             <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :Australia ;
             <http://xmlns.com/foaf/0.1/givenName> "EA Perry" ;
-            <https://www.dei.unipd.it/lodb/cri/isManofMatch> "false"^^xsd:boolean ;
             rdfs:comment "Player 1 of Australia for Match_testfinal"@en .
 
 
@@ -823,7 +825,6 @@ Toss holds - India, Field"""@en ;
             owl:differentFrom :pl2_tm_eng ;
             <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :England ;
             <http://xmlns.com/foaf/0.1/givenName> "JL Gunn" ;
-            <https://www.dei.unipd.it/lodb/cri/isManofMatch> "false"^^xsd:boolean ;
             rdfs:comment "Player 1 of England for Match_testfinal"@en .
 
 
@@ -832,7 +833,6 @@ Toss holds - India, Field"""@en ;
                      <https://www.dei.unipd.it/lodb/cri/Player> ;
             <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :Australia ;
             <http://xmlns.com/foaf/0.1/givenName> "KA Rolton" ;
-            <https://www.dei.unipd.it/lodb/cri/isManofMatch> "true"^^xsd:boolean ;
             rdfs:comment "Player 2 of Australia for Match_testfinal"@en .
 
 
@@ -841,7 +841,6 @@ Toss holds - India, Field"""@en ;
                      <https://www.dei.unipd.it/lodb/cri/Player> ;
             <https://www.dei.unipd.it/lodb/cri/belongsToTeam> :England ;
             <http://xmlns.com/foaf/0.1/givenName> "NJ Shaw" ;
-            <https://www.dei.unipd.it/lodb/cri/isManofMatch> "true"^^xsd:boolean ;
             rdfs:comment "Player 2 of England for Match_testfinal"@en .
 
 
@@ -878,7 +877,6 @@ Toss holds - India, Field"""@en ;
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/venueTest
 :venueTest rdf:type owl:NamedIndividual ,
                     <https://www.dei.unipd.it/lodb/cri/Venue> ;
-           <https://www.dei.unipd.it/lodb/cri/neutralVenue> "false"^^xsd:boolean ;
            <https://www.dei.unipd.it/lodb/cri/venueName> "San siro, Milan" ;
            rdfs:comment "Venue for testing if the Venue class works"@en .
 
@@ -886,7 +884,6 @@ Toss holds - India, Field"""@en ;
 ###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/venue_testmatch
 :venue_testmatch rdf:type owl:NamedIndividual ,
                           <https://www.dei.unipd.it/lodb/cri/Venue> ;
-                 <https://www.dei.unipd.it/lodb/cri/neutralVenue> "false"^^xsd:boolean ;
                  <https://www.dei.unipd.it/lodb/cri/venueName> "London" ;
                  rdfs:comment "Venue"@en .
 
