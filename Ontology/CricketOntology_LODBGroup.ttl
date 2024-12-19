@@ -182,7 +182,7 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 ###  https://www.dei.unipd.it/lodb/cri/hasDates
 <https://www.dei.unipd.it/lodb/cri/hasDates> rdf:type owl:DatatypeProperty ;
                                              rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
-                                             rdfs:range xsd:dateTime ;
+                                             rdfs:range xsd:string ;
                                              rdfs:comment "This property represents the date of the match. Every match had been played on certain date."@en ;
                                              rdfs:label "hasDates"@en .
 
@@ -658,7 +658,6 @@ Toss holds - India, Field"""@en ;
         <https://www.dei.unipd.it/lodb/cri/hasVenue> :venueTest ;
         <https://www.dei.unipd.it/lodb/cri/isOfficiatedBy> :BF_Bowden ,
                                                            :Kim_Cotton ;
-        <https://www.dei.unipd.it/lodb/cri/hasDates> "2001-06-25T09:00:00"^^xsd:dateTime ;
         <https://www.dei.unipd.it/lodb/cri/hasMatchID> 3 ;
         rdfs:comment "Match 3"@en .
 
@@ -673,7 +672,7 @@ Toss holds - India, Field"""@en ;
                  <https://www.dei.unipd.it/lodb/cri/hasVenue> :venue_testmatch ;
                  <https://www.dei.unipd.it/lodb/cri/isOfficiatedBy> :ump1_testmatch ,
                                                                     :ump2_testmatch ;
-                 <https://www.dei.unipd.it/lodb/cri/hasDates> "2009-06-19T12:00:00"^^xsd:dateTime ;
+                 <https://www.dei.unipd.it/lodb/cri/hasDates> "2009-06-19" ;
                  <https://www.dei.unipd.it/lodb/cri/hasMatchID> 10 ;
                  rdfs:comment "Match final testing" .
 
