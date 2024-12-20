@@ -17,13 +17,13 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
 #    Object Properties
 #################################################################
 
-###  https://www.dei.unipd.it/lodb/cri#appearedInMatch
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/appearedInMatch
 :appearedInMatch rdf:type owl:ObjectProperty ;
                  rdfs:domain <https://www.dei.unipd.it/lodb/cri/Player> ;
                  rdfs:range <https://www.dei.unipd.it/lodb/cri/Match> .
 
 
-###  https://www.dei.unipd.it/lodb/cri#hasPlayerOfMatch
+###  http://www.semanticweb.org/mehul/ontologies/2024/10/untitled-ontology-25/hasPlayerOfMatch
 :hasPlayerOfMatch rdf:type owl:ObjectProperty ;
                   rdfs:domain <https://www.dei.unipd.it/lodb/cri/Match> ;
                   rdfs:range <https://www.dei.unipd.it/lodb/cri/Player> .
@@ -276,9 +276,9 @@ We have taken the Women's T20 Cricket data from cricsheet to model the ontology.
                                                        rdfs:domain <https://www.dei.unipd.it/lodb/cri/Innings> ;
                                                        rdfs:range [ rdf:type rdfs:Datatype ;
                                                                     owl:onDatatype xsd:integer ;
-                                                                    owl:withRestrictions ( [ xsd:minInclusive 120
+                                                                    owl:withRestrictions ( [ xsd:minInclusive 10
                                                                                            ]
-                                                                                           [ xsd:maxInclusive 125
+                                                                                           [ xsd:maxInclusive 130
                                                                                            ]
                                                                                          )
                                                                   ] ;
