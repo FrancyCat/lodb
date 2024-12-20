@@ -6,15 +6,14 @@ Group Members (University email id| Matricola| Github ID):-
 1.	Mehuly Chakraborthy (mehuly.chakraborthy@studenti.unipd.it| 2107432| mehuly25)
 2.	Hufsa Memon (Hufsa.memon@studenti.unipd.it| 2106237| Hufsa05)
 3.  Francisca Chidubem Ezeobi (franciscachidubem.ezeobi@studenti.unipd.it| 2110514| FrancyCat)
-4.  Sahareesh Agha (sahareesh.aghgia@studenti.unipd.it| 2122003| Sahareesh-Agha)
 
 ### Organisation of the repository ###
 
 The repository is organised as follows:
-* DomainOfInterest: This folder contains the domain of interest for our ontology.
-* VisualGraph: This folder contains the Graph of our model.
-* Ontology: This folder contains the .owl file for our ontology.
-* Datasets: This folder contains the datasets that we used for our project.
+* Dataset: This folder contains the datasets in yaml format that we used for our project.
+* Notebooks: This folder contains the ipynb files for data cleaning and serialisation for rdf triples.
+* Ontology: This folder contains the .ttl file for our ontology and the visual schema of the same.
+* RDFTriples: This folder contains the rdf triples (.ttl files) generated using the ontology and notebooks.
 
 ### Dataset ###
 *[Dataset Link](https://cricsheet.org/downloads/)
